@@ -65,12 +65,20 @@ class PureComponent extends React.PureComponent {
 class FirstComponent extends React.Component {
     constructor(){
         super();
+        this.state = {rBool : Math.random() >= 0.5};
         this.forceUpdateHandler = this.onClickButtonFnComponent.bind(this);
     };
 
     onClickButtonFnComponent(){
-        rBool = Math.random() >= 0.5;
-        console.log(rBool);
+        // this.setState(function (state, props) {
+        //     return {
+        //         rBool: Math.random() >= 0.5
+        //     }
+        // });
+        this.setState({
+            rBool: Math.random() >= 0.5
+        });
+        console.log(this.state.rBool);
         this.forceUpdate();
     };
 
@@ -79,7 +87,7 @@ class FirstComponent extends React.Component {
             <div>
                 ***--React.Component-- simple text
                 {elementMain}
-                {(rBool) ? secondelement : secondelement /*???*/}
+                {(this.state.rBool) ? secondelement : secondelement /*???*/}
                 <FirstComponent0></FirstComponent0>
                 <PureComponent></PureComponent>
                 <HelloFnComponent name='real Name goes here. --HelloFnComponent--'></HelloFnComponent>
