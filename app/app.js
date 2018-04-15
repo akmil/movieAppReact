@@ -8,7 +8,9 @@ ReactDOM.render(
     document.getElementById('app')
 );
 
-module.hot.accept();
+if (module && module.hot) {
+    module.hot.accept();
+}
 
 
 /*
