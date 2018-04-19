@@ -7,6 +7,7 @@ body {
   font-size: $fontSize;
   line-height: $lineHeight;
   color: $primaryColor;
+  margin: 0;
 
   @media (min-width: $desktopBreakpoint) {
     font-size: $desktopFontSize;
@@ -23,4 +24,17 @@ a {
   &:hover {
 
   }
+}
+
+.col-50 {
+  width: 50%;
+  display: inline-block;
+}
+
+.col-33 {
+  width: 50%;
+  display: inline-block;
+}
+.text-align-right {
+  text-align: right;
 }

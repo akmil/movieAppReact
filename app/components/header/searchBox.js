@@ -1,34 +1,33 @@
 import React from 'react';
+import {Button} from '../common/button';
 
-const SearchField = ({val}) => (
-    <input placeholder={`Hey, ${val}`} />
-);
+export const SearchField = ({val}) => {
+    return (
+        <div className={'search-field-box'}>
+            <label className={'search-field-label'}>Find your movie</label>
+            <input placeholder={`Hey, ${val}`} className={'search-field-input'}/>
+        </div>
+    );
+}
 
-const SearchFilter  = ({name}) => (
-    <ul>
-        <li>{`Title ${name}`}</li>
-        <li>{`Genre ${name}`}</li>
-    </ul>
-);
-
-const SearchButton  = props => {
-    const styles = {
-        background: 'blue',
-        color: 'white',
-        padding: '10px'
-    };
-
-    return <button {...props} style={styles} />;
+const SearchButton  = () => {
+    return <div className={'search-button'}>
+        <Button>search</Button>
+    </div>
 };
 
-export default class SearchBox extends React.Component {
-    render() {
-        return (
-            <div className='search-box-wrapper'>
-                <SearchField val={'Search by name'}></SearchField>
-                <SearchFilter></SearchFilter>
-                <SearchButton>Search</SearchButton>
+
+export const SearchFilter  = ({name}) => {
+    return (
+        <div className={'search-filter'}>
+            <div className={'search-filter-box'}>
+                Search by
+                <ul className={'search-filter-list'}>
+                    <li>{`Title ${name}`}</li>
+                    <li>{`Genre ${name}`}</li>
+                </ul>
             </div>
-        )
-    }
-}
+            <SearchButton/>
+        </div>
+    );
+};
