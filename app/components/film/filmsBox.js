@@ -44,6 +44,12 @@ const FilmsDescription = ({description}) => (
 );
 
 //Films by the same genre
+const FilmsSortBy = ({genre}) => (
+    <React.Fragment>
+        Films by {genre} genre.
+    </React.Fragment>
+);
+
 const FilmsList = () => (
     <ResultsBody></ResultsBody>
 );
@@ -73,6 +79,9 @@ export default class FilmsBox extends React.Component {
                             />
                         </div>
                     </div>
+                </div>
+                <div className='results results-wrapper'>
+                    <FilmsSortBy genre={'Drama'}></FilmsSortBy>
                 </div>
                 <FilmsList></FilmsList>
             </div>
