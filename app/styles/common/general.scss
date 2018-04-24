@@ -1,0 +1,40 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  color: $primaryColor;
+  margin: 0;
+
+  @media (min-width: $desktopBreakpoint) {
+    font-size: $desktopFontSize;
+  }
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  text-decoration: underline;
+
+  &:hover {
+
+  }
+}
+
+.col-50 {
+  width: 50%;
+  display: inline-block;
+}
+
+.col-33 {
+  width: 50%;
+  display: inline-block;
+}
+.text-align-right {
+  text-align: right;
+}

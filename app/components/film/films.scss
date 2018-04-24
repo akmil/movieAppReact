@@ -1,0 +1,74 @@
+.films {
+  &-box-wrapper {
+    padding: $padding-base;
+    background-color: $grayColor;
+  }
+  &-sort-by,
+  &-count {
+    font-weight: bold;
+    width: 50%;
+    display: inline-block;
+  }
+  &-sort-by {
+    font-weight: bold;
+    text-align: right;
+
+    //TODO mve it to mixin copied from header -> .search-filter-list
+    &-list {
+      list-style: none;
+      padding: 0;
+      display: inline-block;
+      margin-left: 10px;
+
+      li {
+        display: inline-block;
+        margin: 0 $margin-base/5;
+      }
+    }
+
+    &-list {
+      li {
+        &.active {
+          color: $thirdlyColor;
+        }
+      }
+    }
+  }
+
+  //TODO mve it to mixin copied from header -> .search-filter-list
+  &-list {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    margin-left: 10px;
+
+    li {
+      width: 33%;
+      display: inline-block;
+      margin: 0 $margin-base/5;
+    }
+  }
+
+  &-list {
+    li {
+      margin: 0;
+      padding: 0 $margin-base/2;
+      img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+      }
+      p {
+        margin-bottom: $margin-base/4;
+        font-size: $fontSize;
+      }
+      .release-date {
+        font-size: $fontSize;
+        border: 1px solid $grayColor;
+        padding: 2px;
+      }
+    }
+  }
+
+
+}
