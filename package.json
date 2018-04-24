@@ -6,7 +6,8 @@
   "scripts": {
     "test": "exit 0",
     "startExpress": "node ./backend-express/express.js",
-    "startWebpack4": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start-Dev-Webpack4": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start-Prod-Webpack4": "webpack-dev-server --config ./webpack.config.js --mode production"
   },
   "author": "pasha",
   "license": "ISC",

@@ -8,7 +8,5 @@ export const Button  = props => {
         padding: '10px'
     };
 
-    // const styles = props.style || stylesDefault;
-
     return <button {...props} style={props.style || stylesDefault} />;
 };

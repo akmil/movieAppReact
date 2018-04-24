@@ -1,12 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
 
-module.exports = {
+module.exports = function(env, options) {
+const isProduction = options.mode === "production";
+const config = {
     entry: [
         'react-hot-loader/patch',
         './app/app.js',
         './app/styles/main.scss'
     ],
+    mode: isProduction ? "production" : "development",
+    devtool: isProduction ? "none" : "source-map",
     module: {
         rules: [
             {
@@ -45,4 +49,7 @@ module.exports = {
         contentBase: './dist',
         hot: true
     }
+};
+
+    return config;
 };
