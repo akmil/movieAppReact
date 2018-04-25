@@ -1,27 +1,9 @@
-$fontFamily: 'Roboto', sans-serif;
-$lineHeight: 1.2;
 
-$tabletBreakpoint: 768px;
-$desktopBreakpoint: 1025px;
-$bigDesktopBreakpoint: 1444px;
-
-$modalBreakpoint: 1325px;
-
-$primaryTransitionDelay: .4s;
-
-$primaryColor: #000;
-$secondaryColor: #FFF;
-$thirdlyColor: #F44336;
-$grayColor: lightgray;
-
-$fontSize: 12px;
-$desktopFontSize: 16px;
-
-$defaultInputWidth: 200px;
-
-$padding-base: 20px;
-$margin-base: 20px;
-
+.logo {
+  color: $thirdlyColor;
+  font-weight: bold;
+  padding: $padding-base 0;
+}
 
 header {
   background: url("https://images.pexels.com/photos/701337/pexels-photo-701337.jpeg?auto=compress&cs=tinysrgb&h=650&w=940") center;
@@ -29,12 +11,7 @@ header {
   min-height: 200px;
   padding: $padding-base;
   color: $secondaryColor;
-
-  .logo {
-    color: $thirdlyColor;
-    font-weight: bold;
-    padding: $padding-base 0;
-  }
+  font-family: $fontFamily;
 
   .search-field{
     &-box {}
