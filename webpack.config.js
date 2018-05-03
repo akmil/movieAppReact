@@ -1,5 +1,17 @@
 const webpack = require('webpack');
-const path = require('path');
+const path = require('path'),
+    MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const devMode = process.env.NODE_ENV !== 'production';
+const pluginsWebpack = [
+    new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: devMode ? '[name].css' : '[name].[hash].css',
+        chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+    })
+];
 
 module.exports = function(env, options) {
 const isProduction = options.mode === "production";
@@ -30,11 +42,20 @@ const config = {
                         sourceMap: true
                     }
                 }]
-            }
+            },
+            /*{
+                test: /\.s?[ac]ss$/,
+                use: [
+                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader',
+                ],
+            }*/
         ]
     },
     resolve: {
-        extensions: ['*', '.scss', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx', '.scss']
     },
     output: {
         path: path.resolve(__dirname + '/dist'),
@@ -42,9 +63,7 @@ const config = {
         filename: 'bundle.js'
     },
     watch: true,
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
+    plugins: pluginsWebpack,
     devServer: {
         contentBase: './dist',
         hot: true

@@ -8,7 +8,7 @@ export const SearchField = ({val}) => {
             <input placeholder={`Hey, ${val}`} className={'search-field-input'}/>
         </div>
     );
-}
+};
 
 const SearchButton  = () => {
     return <div className={'search-button'}>
