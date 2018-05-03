@@ -1,6 +1,5 @@
 import React from 'react';
-// import Header12 from './components/header/header'; // why it is broken ???
-import Header2 from './components/header/header-new';
+import Header from './components/header/header';
 import ResultsBox from "./components/resultsBox/resultsBox";
 import FilmsBox from "./components/film/filmsBox";
 
@@ -12,7 +11,7 @@ class MainLayout extends React.Component {
     render() {
         return (
             <div className={`main-layout-wrapper`}>
-                <Header2></Header2>
+                <Header></Header>
                 <ResultsBox></ResultsBox>
                 <FilmsBox></FilmsBox>
             </div>

@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
-// common
+/* common */
 @import './common/variables';
 @import './common/general';
 
-// components common
+/* components common*/
 @import '../../app/components/common/movieList';
 
-// components
+/* components*/
 @import '../../app/components/header/header';
 @import '../../app/components/resultsBox/results';
 @import '../../app/components/film/films';
