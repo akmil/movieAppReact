@@ -10,7 +10,7 @@ export const SearchField = ({val}) => {
     );
 };
 
-const SearchButton  = () => {
+export const SearchButton  = () => {
     return <div className={'search-button'}>
         <Button>search</Button>
     </div>
@@ -19,15 +19,12 @@ const SearchButton  = () => {
 
 export const SearchFilter  = ({name}) => {
     return (
-        <div className={'search-filter'}>
-            <div className={'search-filter-box'}>
-                Search by
-                <ul className={'search-filter-list'}>
-                    <li>{`Title ${name}`}</li>
-                    <li>{`Genre ${name}`}</li>
-                </ul>
-            </div>
-            <SearchButton/>
+        <div className={'search-filter-box'}>
+            Search by
+            <ul className={'search-filter-list'}>
+                <li>{`Title ${name}`}</li>
+                <li>{`Genre ${name}`}</li>
+            </ul>
         </div>
     );
 };
