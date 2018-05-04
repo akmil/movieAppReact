@@ -6,12 +6,15 @@
 }
 
 header {
-  background: url("https://images.pexels.com/photos/701337/pexels-photo-701337.jpeg?auto=compress&cs=tinysrgb&h=650&w=940") center;
-  background-size: cover;
-  min-height: 200px;
-  padding: $padding-base;
-  color: $secondaryColor;
   font-family: $fontFamily;
+  color: $secondaryColor;
+
+  .header-wrapper{
+    background: url("https://images.pexels.com/photos/701337/pexels-photo-701337.jpeg?auto=compress&cs=tinysrgb&h=650&w=940") center;
+    background-size: cover;
+    min-height: 200px;
+    padding: $padding-base;
+  }
 
   .search-field{
     &-box {}

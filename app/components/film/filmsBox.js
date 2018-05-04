@@ -18,24 +18,16 @@ export const FilmsSearchButton  = props => {
 
 const FilmsCover = ({src}) => (
     <img src={src}
-         alt={'image'}
-         className={'col-33 mr-3'}
+         alt={src}
+         className='col-33 mr-3'
     />
 );
 
 const FilmsTitle = ({title, rate}) => (
-    <h1 className={'films-title mb-0'}>
+    <h1 className='films-title mb-0'>
         {title}
         <span className={'badge badge-transparent ml-2'}>{rate}</span>
     </h1>
-);
-
-//Film duration and release year
-const FilmsDuration = ({duration, release}) => (
-    <div className={'mb-3'}>
-        <span className={'mr-3'}>{release}</span>
-        <span className={'ml-3'}>{duration}</span>
-    </div>
 );
 
 //Description
@@ -58,17 +50,20 @@ export default class FilmsBox extends React.Component {
     render() {
         return (
             <div className='films films-box-wrapper'>
-                <div className={'films-box-header'}>
-                    <div className={'logo col-33'}>netfixroulette</div>
+                <div className='films-box-header'>
+                    <div className='logo col-33'>netfixroulette</div>
                     <FilmsSearchButton name={'FilmsSearchButton'} theme={'white'}/>
                     <div className={'d-flex'}>
                         <FilmsCover src={'https://images.pexels.com/photos/584302/pexels-photo-584302.jpeg?auto=compress&cs=tinysrgb&h=350'}/>
-                        <div className={'films-box-body'}>
+                        <div className='films-box-body'>
                             <FilmsTitle activeClass={'activeClass'}
                                         title={'Pulp fiction'}
                                         rate={8.2}
                             />
-                            <FilmsDuration duration={'100'} release={1995}/>
+                            <div className='mb-3'>
+                                <span className='mr-3 release'>1995</span>
+                                <span className='ml-3 duration'>100</span>
+                            </div>
                             <FilmsDescription
                                 description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ' +
                                 'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis ' +

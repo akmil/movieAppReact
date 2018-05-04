@@ -1,25 +1,10 @@
 import React from 'react';
-import ErrorBoundry from '../common/errorBoundry';
-
-const ResultsCount = ({count}) => (
-    <div className={'results-count'}>{`${count} items found`} </div>
-);
-
-const ResultsSort = ({activeItem}) => (
-    // activeItem === 2
-    <div className={'results-sort-by'}>Sort by
-        <ul className={'results-sort-by-list'}>
-            <li>{`release date`}</li>
-            <li className={`active`}>{`raiting`}</li> {/*TODO get from activeItem*/}
-        </ul>
-    </div>
-);
 
 export const ResultsBodyItem = ({title, genre, releaseDate,src}) => (
     <li>
         <img src={src}
-             alt={`${title}`}/>
-        <div className={'col-50'}>
+             alt={title}/>
+        <div className="col-50">
             <p className={'title'}>{title}</p>
             <p className={'genre'}>{genre}</p>
         </div>
@@ -63,12 +48,6 @@ export default class ResultsBox extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className='results results-wrapper'>
-                    <ErrorBoundry>
-                        <ResultsCount count={7}></ResultsCount>
-                        <ResultsSort activeItem={1}></ResultsSort>
-                    </ErrorBoundry>
-                </div>
                 <ResultsBody></ResultsBody>
             </React.Fragment>
         )

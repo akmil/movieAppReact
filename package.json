@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.js",
   "scripts": {
-    "test": "node scriptsNode/test.js --env=jsdom",
+    "test": "jest",
     "startExpress": "node ./backend-express/express.js",
     "start-Dev-Webpack4": "webpack-dev-server --config ./webpack.config.js --mode development",
     "start-Prod-Webpack4": "webpack ./webpack.config.prod.js --mode production --progress --color"
