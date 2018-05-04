@@ -1,7 +1,7 @@
 import React from 'react';
-import {SearchField, SearchFilter} from "./searchBox";
+import {SearchField, SearchFilter, SearchButton} from "./searchBox";
 
-// import ErrorBoundry from 'common/errorBoundry';
+import ErrorBoundry from '../common/errorBoundry';
 
 class Header1 extends React.Component {
 
@@ -9,9 +9,18 @@ class Header1 extends React.Component {
         return (
             <header>
                 <div className={'logo'}>netfixroulette</div>
-                <SearchField
-                    val={'Search by name'}/>
-                <SearchFilter></SearchFilter>
+                <ErrorBoundry>
+                    <SearchField
+                        val={'Search by name'}/>
+                </ErrorBoundry>
+                <div className={'search-filter'}>
+                    <ErrorBoundry>
+                        <SearchFilter/>
+                    </ErrorBoundry>
+                    <ErrorBoundry>
+                        <SearchButton/>
+                    </ErrorBoundry>
+                </div>
             </header>
         )
     }

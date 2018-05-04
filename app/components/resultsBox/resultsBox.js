@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorBoundry from '../common/errorBoundry';
 
 const ResultsCount = ({count}) => (
     <div className={'results-count'}>{`${count} items found`} </div>
@@ -63,8 +64,10 @@ export default class ResultsBox extends React.Component {
         return (
             <React.Fragment>
                 <div className='results results-wrapper'>
-                    <ResultsCount count={7}></ResultsCount>
-                    <ResultsSort activeItem={1}></ResultsSort>
+                    <ErrorBoundry>
+                        <ResultsCount count={7}></ResultsCount>
+                        <ResultsSort activeItem={1}></ResultsSort>
+                    </ErrorBoundry>
                 </div>
                 <ResultsBody></ResultsBody>
             </React.Fragment>
