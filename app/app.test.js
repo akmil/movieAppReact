@@ -12,4 +12,22 @@ describe('MainLayout', function () {
 
         expect(wrapper).toMatchSnapshot();
     })
+
+    /*it('should correctly calculate salary' , () => {
+        const result = calculateSalary({ testsWritten: 5 });
+
+        expect(result).toMatchSnapshot();
+
+        expect(result).toEqual({
+            prop1: {
+                prop2: {
+                    value: 5,
+                }
+            },
+            prop3: {}
+            prop8: {
+                result: "No salary on this month"
+            }
+        })
+    })*/
 });
