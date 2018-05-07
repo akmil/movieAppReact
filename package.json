@@ -80,8 +80,11 @@
     "setupTestFrameworkScriptFile": "<rootDir>/jest/config.js",
     "moduleDirectories": [
       "node_modules",
-      "src/frontend",
-      "src/shared"
+      "app",
+      "someVendors"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/(node_modules)/"
     ],
     "moduleNameMapper": {
       "\\.(css|scss|svg)$": "identity-obj-proxy"
