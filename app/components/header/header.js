@@ -1,25 +1,24 @@
 import React from 'react';
 import {SearchField, SearchFilter, SearchButton} from "./searchBox";
-
-import ErrorBoundry from '../common/errorBoundry';
+import {ResultsCount, ResultsSort} from "./resultsPanel";
 
 class Header1 extends React.Component {
 
     render() {
         return (
             <header>
-                <div className={'logo'}>netfixroulette</div>
-                <ErrorBoundry>
-                    <SearchField
-                        val={'Search by name'}/>
-                </ErrorBoundry>
-                <div className={'search-filter'}>
-                    <ErrorBoundry>
+                <div className="header-wrapper">
+                    <div className={'logo'}>netfixroulette</div>
+                        <SearchField
+                            val={'Search by name'}/>
+                    <div className={'search-filter'}>
                         <SearchFilter/>
-                    </ErrorBoundry>
-                    <ErrorBoundry>
                         <SearchButton/>
-                    </ErrorBoundry>
+                    </div>
+                </div>
+                <div className='results results-wrapper'>
+                    <ResultsCount count={7}></ResultsCount>
+                    <ResultsSort activeItem={1}></ResultsSort>
                 </div>
             </header>
         )

@@ -3,4 +3,7 @@ package-lock.json
 node_modules
 /node_modules
 /dist
+/coverage
 index.html
+/cypress
+cypress.json
