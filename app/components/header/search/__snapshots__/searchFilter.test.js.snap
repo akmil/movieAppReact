@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<search /> should render <SearchFilter /> components 1`] = `
+<div
+  className="search-filter-box"
+>
+  Search by
+  <ul
+    className="search-filter-list"
+  >
+    <li>
+      Title undefined
+    </li>
+    <li>
+      Genre undefined
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<search SearchFilter/> should render <SearchFilter /> components 1`] = `
+<div
+  className="search-filter-box"
+>
+  Search by
+  <ul
+    className="search-filter-list"
+  >
+    <li>
+      Title undefined
+    </li>
+    <li>
+      Genre undefined
+    </li>
+  </ul>
+</div>
+`;
