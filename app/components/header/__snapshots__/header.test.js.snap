@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render without errors 1`] = `
+<header>
+  <div
+    className="header-wrapper"
+  >
+    <div
+      className="logo"
+    >
+      netfixroulette
+    </div>
+    <SearchField
+      val="Search by name"
+    />
+    <div
+      className="search-filter"
+    >
+      <SearchFilter />
+      <SearchButton />
+    </div>
+  </div>
+  <div
+    className="results results-wrapper"
+  >
+    <ResultsCount
+      count={7}
+    />
+    <ResultsSort
+      activeItem={1}
+    />
+  </div>
+</header>
+`;
+
+exports[`MainLayout should render without errors 1`] = `
+<header>
+  <div
+    className="header-wrapper"
+  >
+    <div
+      className="logo"
+    >
+      netfixroulette
+    </div>
+    <SearchField
+      val="Search by name"
+    />
+    <div
+      className="search-filter"
+    >
+      <SearchFilter />
+      <SearchButton />
+    </div>
+  </div>
+  <div
+    className="results results-wrapper"
+  >
+    <ResultsCount
+      count={7}
+    />
+    <ResultsSort
+      activeItem={1}
+    />
+  </div>
+</header>
+`;
