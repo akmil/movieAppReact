@@ -2,9 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import {SearchFilter} from './searchFilter';
 import renderer from "react-test-renderer";
-// import {SearchButton} from './searchButton';
-// import renderer from 'react-test-renderer';
-// import sinon from 'sinon';
 
 describe('<search SearchFilter/>', () => {
     it('should render <SearchFilter /> components', () => {
@@ -14,10 +11,7 @@ describe('<search SearchFilter/>', () => {
     });
 
 
-    /*it('should be selectable by class "foo"', function() {
-        expect(shallow(<Foo />).is('.search-filter-box')).toBe(true);
-    });
-
+    /*
     it('should render an `.icon-star`', () => {
         const wrapper = shallow(<SearchFilter />);
         expect(wrapper.find('.icon-star')).to.have.length(1);

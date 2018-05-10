@@ -12,8 +12,6 @@ describe('ErrorBoundary', function () {
     });
 
     it('should render without errors ErrorBoundary', () => {
-        // const wrapper = shallow(<ErrorBoundary/>);
-        // wrapper.setState({ hasError: true });
         expect(wrapper).toMatchSnapshot();
     });
 
