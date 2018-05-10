@@ -29,6 +29,12 @@ exports[`resultsBox should render without errors ResultsBody 1`] = `
 </div>
 `;
 
+exports[`resultsBox should render without errors ResultsBody 2`] = `
+<React.Fragment>
+  <ResultsBody />
+</React.Fragment>
+`;
+
 exports[`resultsBox should render without errors ResultsBodyItem 1`] = `
 <li>
   <img />

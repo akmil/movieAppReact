@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieItem should render without errors MovieItem 1`] = `
+<li>
+  <img
+    alt="undefined"
+  />
+  <div
+    className="col-50"
+  >
+    <p
+      className="title"
+    />
+    <p
+      className="genre"
+    />
+  </div>
+  <div
+    className="col-50 text-align-right"
+  >
+    <span
+      className="release-date"
+    />
+  </div>
+</li>
+`;

@@ -8,7 +8,6 @@ describe('MainLayout', function () {
     it('should render without errors', () => {
       // const wrapper = renderer.create(<MainLayout/>)
         const wrapper = shallow(<MainLayout/>);
-
         expect(wrapper).toMatchSnapshot();
     })
 

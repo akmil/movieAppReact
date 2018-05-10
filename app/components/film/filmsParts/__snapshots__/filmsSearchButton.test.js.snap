@@ -4,7 +4,7 @@ exports[`<films FilmsSearchButton /> should render SearchButton without errors 1
 <div
   className=" col-66 text-align-right"
 >
-  <button
+  <Button
     style={
       Object {
         "background": "white",
