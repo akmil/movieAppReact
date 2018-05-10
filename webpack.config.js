@@ -1,20 +1,26 @@
-const webpack = require('webpack');
-const path = require('path'),
+const webpack = require('webpack'),
+    path = require('path'),
+    libPath = path.join(__dirname, 'app'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
     MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const devMode = process.env.NODE_ENV !== 'production';
+// const devMode = process.env.NODE_ENV !== 'production';
 const pluginsWebpack = [
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
-        filename: devMode ? '[name].css' : '[name].[hash].css',
-        chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+    }),
+    new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: path.join(libPath, 'index.html')
     })
 ];
 
 module.exports = function(env, options) {
-const isProduction = options.mode === "production";
+const isProduction = options.mode === "development";
 const config = {
     entry: [
         'react-hot-loader/patch',
@@ -42,16 +48,7 @@ const config = {
                         sourceMap: true
                     }
                 }]
-            },
-            /*{
-                test: /\.s?[ac]ss$/,
-                use: [
-                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'postcss-loader',
-                    'sass-loader',
-                ],
-            }*/
+            }
         ]
     },
     resolve: {

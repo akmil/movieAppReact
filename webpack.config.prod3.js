@@ -2,13 +2,8 @@ var path = require('path'),
     webpack = require("webpack"),
     libPath = path.join(__dirname, 'app'),
     wwwPath = path.join(__dirname, 'dist'),
-    // pkg = require('./package.json'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require("extract-text-webpack-plugin");
-
-// var nodeExternals = require('webpack-node-externals');
-
-// var bundleCss = "bundle-[hash:6].css";
 
 var cssPlugin = new ExtractTextPlugin("bundle-[hash:6].css");
 

@@ -1,50 +1,12 @@
 import React from 'react';
-import {ResultsBody} from './../resultsBox/resultsBox';
-import {Button} from '../common/button';
 
-export const FilmsSearchButton  = props => {
-    const stylesWhite = {
-        background: 'white',
-        border: 'none',
-        color: '#F44336',
-        padding: '10px'
-    };
-    const theme = (props.theme) ? `${props.theme}-theme` : '';
+import {FilmsTitle} from './filmsParts/filmsTitle';
+import {FilmsCover} from './filmsParts/filmsCover';
+import {FilmsDescription} from './filmsParts/filmsDescription';
+import {FilmsSortBy} from './filmsParts/filmsSortBy';
+import {FilmsList} from './filmsParts/filmsList';
+import {FilmsSearchButton} from './filmsParts/filmsSearchButton';
 
-    return <div className={`${theme} col-66 text-align-right`}>
-            <Button style={stylesWhite}>{props.name}</Button>
-        </div>
-};
-
-const FilmsCover = ({src}) => (
-    <img src={src}
-         alt={src}
-         className='col-33 mr-3'
-    />
-);
-
-const FilmsTitle = ({title, rate}) => (
-    <h1 className='films-title mb-0'>
-        {title}
-        <span className={'badge badge-transparent ml-2'}>{rate}</span>
-    </h1>
-);
-
-//Description
-const FilmsDescription = ({description}) => (
-    <div className="film-description">{description}</div>
-);
-
-//Films by the same genre
-const FilmsSortBy = ({genre}) => (
-    <React.Fragment>
-        Films by {genre} genre.
-    </React.Fragment>
-);
-
-const FilmsList = () => (
-    <ResultsBody></ResultsBody>
-);
 
 export default class FilmsBox extends React.Component {
     render() {

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<films FilmsTitle/> should render <FilmsTitle /> components 1`] = `
+<h1
+  className="films-title mb-0"
+>
+  <span
+    className="badge badge-transparent ml-2"
+  />
+</h1>
+`;

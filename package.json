@@ -96,7 +96,7 @@
     "moduleNameMapper": {
       "\\.(css|scss|svg)$": "identity-obj-proxy"
     },
-    "collectCoverageFrom" : ["app/**", "!app/__snapshots__/**"],
+    "collectCoverageFrom" : ["app/**", "!**/__snapshots__/**"],
     "collectCoverage": true,
     "coverageReporters": [
       "json",
