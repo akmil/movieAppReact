@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<films FilmsCover /> should render SearchButton without errors 1`] = `
+<img
+  alt={undefined}
+  className="col-33 mr-3"
+  src={undefined}
+/>
+`;

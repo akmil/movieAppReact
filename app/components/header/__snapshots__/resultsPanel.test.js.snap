@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resultsPanel should render without errors ResultsCount 1`] = `
+<div
+  className="results-count"
+>
+   items found
+</div>
+`;
+
+exports[`resultsPanel should render without errors ResultsSort 1`] = `
+<div
+  className="results-sort-by"
+>
+  Sort by
+  <ul
+    className="results-sort-by-list"
+  >
+    <li>
+      release date
+    </li>
+    <li
+      className="active"
+    >
+      raiting
+    </li>
+     
+  </ul>
+</div>
+`;

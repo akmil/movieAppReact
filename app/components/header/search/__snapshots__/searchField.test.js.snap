@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<search SearchField/> should render <SearchField /> components 1`] = `
+<div
+  className="search-field-box"
+>
+  <label
+    className="search-field-label"
+  >
+    Find your movie
+  </label>
+  <input
+    className="search-field-input"
+    placeholder="Hey, undefined"
+  />
+</div>
+`;

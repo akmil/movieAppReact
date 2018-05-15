@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default const MovieItem = ({title, genre, releaseDate,src}) => (
+export const MovieItem = ({title, genre, releaseDate, src}) => (
     <li>
         <img src={src}
              alt={`${title}`}/>

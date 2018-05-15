@@ -1,17 +1,19 @@
 import React from 'react';
-import {SearchField, SearchFilter, SearchButton} from "./searchBox";
+import {SearchButton} from "./search/searchButton";
+import {SearchFilter} from "./search/searchFilter";
+import {SearchField} from "./search/searchField";
 import {ResultsCount, ResultsSort} from "./resultsPanel";
 
-class Header1 extends React.Component {
+class Header extends React.Component {
 
     render() {
         return (
             <header>
                 <div className="header-wrapper">
-                    <div className={'logo'}>netfixroulette</div>
+                    <div className='logo'>netfixroulette</div>
                         <SearchField
                             val={'Search by name'}/>
-                    <div className={'search-filter'}>
+                    <div className='search-filter'>
                         <SearchFilter/>
                         <SearchButton/>
                     </div>
@@ -25,4 +27,4 @@ class Header1 extends React.Component {
     }
 }
 
-export default Header1;
+export default Header;

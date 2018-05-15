@@ -5,7 +5,7 @@
   "main": "webpack.js",
   "scripts": {
     "test": "jest",
-    "test-upd-snapShot": "jest -u",
+    "test-upd-snapShot": "jest --updateSnapshot",
     "cypress": "cypress open",
     "startExpress": "node ./backend-express/express.js",
     "start-Dev-Webpack4": "webpack-dev-server --config ./webpack.config.js --mode development",
@@ -88,7 +88,7 @@
     "moduleDirectories": [
       "node_modules",
       "app",
-      "someVendors"
+      "more someVendorsGoesHere"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/(node_modules)/"
@@ -96,6 +96,7 @@
     "moduleNameMapper": {
       "\\.(css|scss|svg)$": "identity-obj-proxy"
     },
+    "collectCoverageFrom" : ["app/**", "!app/app.js","!**/__snapshots__/**"],
     "collectCoverage": true,
     "coverageReporters": [
       "json",

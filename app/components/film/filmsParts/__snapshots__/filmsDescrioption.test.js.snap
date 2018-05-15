@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<films FilmsDescription /> should render SearchButton without errors 1`] = `
+<div
+  className="film-description"
+/>
+`;

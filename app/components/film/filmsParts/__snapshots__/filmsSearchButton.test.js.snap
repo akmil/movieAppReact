@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<films FilmsSearchButton /> should render SearchButton without errors 1`] = `
+<div
+  className=" col-66 text-align-right"
+>
+  <Button
+    style={
+      Object {
+        "background": "white",
+        "border": "none",
+        "color": "#F44336",
+        "padding": "10px",
+      }
+    }
+  />
+</div>
+`;
