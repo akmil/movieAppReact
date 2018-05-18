@@ -51,7 +51,7 @@
     "jest": "^22.4.3",
     "jest-css-modules": "^1.1.0",
     "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.8.3",
+    "node-sass": "^4.9.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "postcss-loader": "^2.1.4",
     "postcss-plugin": "^1.0.0",
@@ -96,7 +96,11 @@
     "moduleNameMapper": {
       "\\.(css|scss|svg)$": "identity-obj-proxy"
     },
-    "collectCoverageFrom" : ["app/**", "!app/app.js","!**/__snapshots__/**"],
+    "collectCoverageFrom": [
+      "app/**",
+      "!app/app.js",
+      "!**/__snapshots__/**"
+    ],
     "collectCoverage": true,
     "coverageReporters": [
       "json",
