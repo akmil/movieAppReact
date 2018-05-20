@@ -13,6 +13,7 @@ class Header extends React.Component {
     constructor(props){
       super(props);
     }
+    
     componentDidMount(){
       this.setState({sortBy: 'title'});
     }
@@ -23,10 +24,6 @@ class Header extends React.Component {
 
     setGenre(genre){      
       this.setState({sortBy: genre});
-      // this.props.sortBy = genre
-      // setTimeout(() => {
-      //   console.log('this.props', this.state.sortBy);
-      // }, 200);
     }
 
     render() {
@@ -78,7 +75,6 @@ class Header extends React.Component {
     }
 }
 const mapStateToProps = (state, ownProps) => {
-  //console.log('this.props.sortBy', this.props.sortBy);
   return {
     sortBy: state.sortBy
   }
