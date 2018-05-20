@@ -26,16 +26,8 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    /*onClick: () => {
-        console.log('onClick dispatch', setVisibilityFilter(ownProps.filter));
-        dispatch(setVisibilityFilter(ownProps.filter))
-    },*/
-    /*onClick: () => {
-        // console.log('onClick dispatch',suggestResortName('movies'));
-        dispatch(suggestMovies('movies', dispatch))
-    }*/
-    onClick: () => {dispatch(suggestMovies('movies'))},
+const mapDispatchToProps = (dispatch, ownProps) => ({    
+    onClick: () => dispatch(suggestMovies('movies')),
     fetchBooksId : bookId => dispatch(bookActions.fetchBookById(bookId)),
 })
 

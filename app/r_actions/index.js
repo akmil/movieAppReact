@@ -56,7 +56,7 @@ export const fetchMovieByIdSuccess = (movies) => {
 };
 
 export const fetchMovieByName = (movieTitle, searchBy) => dispatch => {
-  console.log('movieTitle', movieTitle);
+  console.log('searchBy', searchBy);
 
   fetch(`${apiUrl}movies?search=${movieTitle}&searchBy=${searchBy}`)
       .then(response => response.json())

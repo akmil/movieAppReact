@@ -12,12 +12,21 @@ let titleInput;
 class Header extends React.Component {
     constructor(props){
       super(props);
-      console.log(this.props);
+    }
+    componentDidMount(){
+      this.setState({sortBy: 'title'});
     }
 
     submitBook(input){
-      console.log(this.state);
-      this.props.fetchMovie(input.title, 'title');
+      this.props.fetchMovie(input.title, this.state.sortBy);
+    }
+
+    setGenre(genre){      
+      this.setState({sortBy: genre});
+      // this.props.sortBy = genre
+      // setTimeout(() => {
+      //   console.log('this.props', this.state.sortBy);
+      // }, 200);
     }
 
     render() {
@@ -52,8 +61,8 @@ class Header extends React.Component {
                         <div className='search-filter-box'>
                             Search by
                             <ul className={'search-filter-list'}>
-                                <li onclick={()=>{this.setState(sortBy, 'title')}}>Title</li>
-                                <li onclick={()=>{this.props.sortBy = 'genre'}}>Genre</li>                                
+                                <li onClick={()=>{this.setGenre('title')}}>Title</li>
+                                <li onClick={()=>{this.setGenre('genre')}}>Genre</li>                                
                             </ul>
                         </div>
                         <SearchButton/>
@@ -69,16 +78,16 @@ class Header extends React.Component {
     }
 }
 const mapStateToProps = (state, ownProps) => {
+  //console.log('this.props.sortBy', this.props.sortBy);
   return {
-    sortBy: state.sortBy = 'title'
+    sortBy: state.sortBy
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchMovie: name => dispatch(actions.fetchMovieByName(name))
+    fetchMovie: (name, sortBy) => dispatch(actions.fetchMovieByName(name, sortBy))
   }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
-// export default Header;
