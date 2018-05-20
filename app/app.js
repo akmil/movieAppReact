@@ -1,31 +1,21 @@
-import React from 'react'; // Required even if we're not using the `React` object
-import ReactDOM from 'react-dom';
-
+// import 'babel-polyfill';
+import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './r_reducers';
+import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+// import routes from './routes';
+import * as bookActions from './r_actions/fetchBookAction';
+import * as movieActions from './r_actions/index';
 import App from './mainLayout';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-// import { fetchPosts } from './r_actions'
+import configureStore from './r_store/configureStore.dev';
 
-const store = createStore(
-    rootReducer,
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store = configureStore();
+store.dispatch(movieActions.suggestMovies('movies'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app')
 );
-
-
-/*store.dispatch(fetchPosts('reactjs'))
-    .then(() => console.log(store.getState()))*/
-
-ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('app')
-);
-
-if (module && module.hot) {
-    module.hot.accept();
-}

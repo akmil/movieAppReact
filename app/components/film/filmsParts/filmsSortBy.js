@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setVisibilityFilter, showAll, suggestMovies } from '../../../r_actions';
+import * as bookActions from '../../../r_actions';
 import FilmsSearchButton from './filmsSearchButton';
 
 const getVisibleMovie = (movies, filter) => {
@@ -30,11 +31,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         console.log('onClick dispatch', setVisibilityFilter(ownProps.filter));
         dispatch(setVisibilityFilter(ownProps.filter))
     },*/
-    onClick: () => {
+    /*onClick: () => {
         // console.log('onClick dispatch',suggestResortName('movies'));
         dispatch(suggestMovies('movies', dispatch))
-    }
-    // onClick: suggestMovies('movies', dispatch),
+    }*/
+    onClick: () => {dispatch(suggestMovies('movies'))},
+    fetchBooksId : bookId => dispatch(bookActions.fetchBookById(bookId)),
 })
 
 

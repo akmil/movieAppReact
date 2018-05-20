@@ -9,8 +9,11 @@ import FilmsSearchButton from './filmsParts/filmsSearchButton';
 
 import { VisibilityFilters } from '../../r_actions'
 
-
 export default class FilmsBox extends React.Component {
+    // componentDidMount(){
+    //   this.props.fetchCart();
+    // }
+
     render() {
         return (
             <div className='films films-box-wrapper'>

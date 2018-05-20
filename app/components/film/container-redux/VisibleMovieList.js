@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { toggleTodo } from '../../../r_actions/index'
 // import TodoList from '../components/TodoList'
 import {ResultsBody} from './../../resultsBox/resultsBox';
 
@@ -28,7 +27,7 @@ const mapDispatchToProps = dispatch => {
     console.log('___ =VisibleTodoList= onTodoClick');
     //Do nothing
     return {
-        onClick: filter => {
+      onMovieClick: filter => {
             dispatch(filter => ({
                 type: 'SHOW_DRAMA-1',
                 filter

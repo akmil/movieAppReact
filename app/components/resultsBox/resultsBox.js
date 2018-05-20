@@ -1,16 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-export const ResultsBodyItem = ({title, genre, releaseDate, src}) => (
+export const ResultsBodyItem = ({title, genres=[], release_date, poster_path}) => (
     <li>
-        <img src={src}
+        <img src={poster_path}
              alt={title}/>
         <div className="col-50">
             <p className={'title'}>{title}</p>
-            <p className={'genre'}>{genre}</p>
+            <p>
+              {genres.map((genre, index) => (
+                <span className={'genre'} key={index}>{genre} </span>
+              ))}
+            </p>
         </div>
         <div className={'col-50 text-align-right'}>
-            <span className={'release-date'}>{releaseDate}</span>
+            <span className={'release-date'}>{release_date}</span>
         </div>
 
     </li>
