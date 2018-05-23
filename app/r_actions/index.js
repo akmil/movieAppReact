@@ -27,9 +27,9 @@ export const addError = (message) =>
 
 export const suggestMovies = value => dispatch => {
     
-    dispatch({
-        type: 'SHOW_ALL_MOVIE'
-    })
+    // dispatch({
+    //     type: 'SHOW_ALL_MOVIE'
+    // })
 
     fetch(apiUrl+value)
         .then(response => response.json())
@@ -38,6 +38,7 @@ export const suggestMovies = value => dispatch => {
                 type: 'UPD_ALL_MOVIE',
                 payload: suggestions
             })
+            // console.log(suggestions);
           }
         )
         .catch(({message}) =>
@@ -47,8 +48,8 @@ export const suggestMovies = value => dispatch => {
         )
 }
 
-export const fetchMovieByIdSuccess = (movies) => {
-  console.log('fetchMovieByIdSuccess', movies);
+export const fetchMovieByNameSuccess = (movies) => {
+  console.log('fetchMovieByNameSuccess', movies);
   return {
     type: 'FETCH_MOVIES_BY_NAME_SUCCESS',
     payload: movies
@@ -61,8 +62,13 @@ export const fetchMovieByName = (movieTitle, searchBy) => dispatch => {
   fetch(`${apiUrl}movies?search=${movieTitle}&searchBy=${searchBy}`)
       .then(response => response.json())
       .then(response =>{
-          console.log('then response', response.data);
-          dispatch(fetchMovieByIdSuccess(response.data));
+          console.log('response', response.data);
+          dispatch(fetchMovieByNameSuccess(response.data));
+          // dispatch(fetchMovieMetaByNameSuccess());
+          dispatch({
+              type: 'FETCH_MOVIES_META_BY_NAME_SUCCESS',
+              payload: response
+          })
         }
       )
       .catch(error => {

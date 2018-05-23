@@ -11,7 +11,8 @@ exports[`<search SearchField/> should render <SearchField /> components 1`] = `
   </label>
   <input
     className="search-field-input"
-    placeholder="Hey, undefined"
+    onChange={undefined}
+    placeholder="Hey"
   />
 </div>
 `;

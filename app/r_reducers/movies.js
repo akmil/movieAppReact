@@ -29,14 +29,14 @@ const initialState = [{
 const movies = (state = initialState, action) => {
     switch (action.type) {
         case 'UPD_ALL_MOVIE':
-              console.log('UPD_ALL_MOVIE', action.payload.data);
+              // console.log('UPD_ALL_MOVIE', action.payload.data);
               return action.payload.data
 
         case 'FETCH_MOVIES_BY_NAME_SUCCESS':
-            console.log('FETCH_MOVIES_BY_NAME_SUCCESS', action);
+            // console.log('FETCH_MOVIES_BY_NAME_SUCCESS (movies.reducer)', action);
             return action.payload
               
-        case 'ADD_TODO':
+        /*case 'ADD_TODO':
             return [
                 ...state,
                 {
@@ -50,7 +50,7 @@ const movies = (state = initialState, action) => {
                 (movie.id === action.id)
                     ? {...movie, completed: !movie.completed}
                     : movie
-            )
+            )*/
 
         default:
             return state

@@ -1,13 +1,14 @@
 import React from 'react';
 
-export const SearchField = ({val, refInput}) => {
+export const SearchField = ({onChange}) => {
+
     return (
         <div className={'search-field-box'}>
             <label className={'search-field-label'}>Find your movie</label>
             <input 
-              placeholder={`Hey, ${val}`} 
+              placeholder={`Hey`}
               className={'search-field-input'}
-              ref={refInput}
+              onChange={onChange}
             />
         </div>
     );

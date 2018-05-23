@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {FilmsSearchButton} from './filmsSearchButton';
+import FilmsSearchButton from './filmsSearchButton';
 
 describe('<films FilmsSearchButton />', () => {
     it('should render SearchButton without errors', () => {

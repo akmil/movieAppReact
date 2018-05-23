@@ -52,8 +52,13 @@ header {
       margin-left: 10px;
 
       li {
+        padding: 4px;
         display: inline-block;
         margin: 0 $margin-base/5;
+        background-color: $grayColor;
+        &.active {
+          background-color: $thirdlyColor;
+        }
       }
     }
   }

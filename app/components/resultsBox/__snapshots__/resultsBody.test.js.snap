@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsBody should render without errors ResultsBody 1`] = `
+<div
+  className="results-list-box"
+>
+  <ul
+    className="results-list"
+  >
+    <ResultsBodyItem
+      0="b"
+      1="o"
+      2="o"
+      key="0"
+      onClick={[Function]}
+    />
+  </ul>
+</div>
+`;

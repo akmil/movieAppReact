@@ -4,8 +4,8 @@ import { setVisibilityFilter, showAll, suggestMovies } from '../../../r_actions'
 import * as bookActions from '../../../r_actions';
 import FilmsSearchButton from './filmsSearchButton';
 
-const getVisibleMovie = (movies, filter) => {
-    console.log('**filmsSortBy.getVisibleMovie', filter);
+export const getVisibleMovie = (movies, filter) => {
+    // console.log('**filmsSortBy.getVisibleMovie', filter);
     switch (filter) {
         case 'SHOW_DRAMA':
             console.log('==== filmsSortBy.getVisibleMovie ===',filter, movies.filter(t => t.genre === 'Drama2'));
@@ -20,29 +20,16 @@ const getVisibleMovie = (movies, filter) => {
     }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
     return {
         movies: getVisibleMovie(state.movies, state.visibilityFilter)
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => ({    
+export const mapDispatchToProps = (dispatch, ownProps) => ({
     onClick: () => dispatch(suggestMovies('movies')),
-    fetchBooksId : bookId => dispatch(bookActions.fetchBookById(bookId)),
+    // fetchBooksId : bookId => dispatch(bookActions.fetchBookById(bookId)),
 })
-
-
-// const mapStateToProps = (state, ownProps) => ({
-//     active: ownProps.filter === state.visibilityFilter
-// })
-
-// const mapDispatchToProps = (dispatch, ownProps) => ({
-//     onClick: () => {
-//         console.log('onClick dispatch', setVisibilityFilter(ownProps.filter));
-//         dispatch(setVisibilityFilter(ownProps.filter))
-//     }
-// })
-
 
 export default connect(
     mapStateToProps,

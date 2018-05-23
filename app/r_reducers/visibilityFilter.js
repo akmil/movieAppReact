@@ -20,7 +20,7 @@ const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
     }
 }
 
-export const fetching = (state=false, action) => {
+/*export const fetching = (state=false, action) => {
 
     switch (action.type) {
 
@@ -37,6 +37,6 @@ export const fetching = (state=false, action) => {
             return state
     }
 
-}
+}*/
 
 export default visibilityFilter

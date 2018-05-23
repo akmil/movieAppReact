@@ -1,10 +1,9 @@
 import { connect } from 'react-redux'
-// import TodoList from '../components/TodoList'
-import {ResultsBody} from './../../resultsBox/resultsBox';
+import {ResultsBody} from './../../resultsBox/resultsBody';
 
-const getVisibleMovie = (movies, filter) => {
-    console.log('___ =VisibleTodoList= filter -> ', filter);
-    console.log('___ =VisibleTodoList= movies -> ', movies);
+export const getVisibleMovie = (movies, filter) => {
+    // console.log('___ =VisibleTodoList= filter -> ', filter);
+    // console.log('___ =VisibleTodoList= movies -> ', movies);
 
     switch (filter) {
         case 'SHOW_DRAMA':
@@ -17,14 +16,14 @@ const getVisibleMovie = (movies, filter) => {
     }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
     return {
         movies: getVisibleMovie(state.movies, state.visibilityFilter)
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    console.log('___ =VisibleTodoList= onTodoClick');
+/*const mapDispatchToProps = dispatch => {
+    // console.log('___ =VisibleTodoList= onTodoClick');
     //Do nothing
     return {
       onMovieClick: filter => {
@@ -34,11 +33,10 @@ const mapDispatchToProps = dispatch => {
             }))
         }
     }
-}
+}*/
 
 const VisibleTodoList = connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(ResultsBody);
 
 export default VisibleTodoList

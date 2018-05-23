@@ -3,23 +3,32 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Header from "./header";
 import { shallow } from 'enzyme'
+import sinon from 'sinon'
+import configureStore from 'redux-mock-store';
+const mockStore = configureStore();
+const dispatch = jest.fn();
 
 describe('Header', function () {
     it('should render without errors', () => {
         // const wrapper = renderer.create(<MainLayout/>)
-        const wrapper = shallow(<Header/>);
+        /*const wrapper = shallow(
+            <Test dispatch={dispatch} store={mockStore({ runtime: {} })}
+                  testData={fakeTestData}
+            />
+        );*/
+        const wrapper = shallow(<Header dispatch={dispatch} store={mockStore({ runtime: {}, movies:[] })}/>);
         expect(wrapper).toMatchSnapshot();
     });
 
-    /*it('should be selectable by class "header-wrapper"', function() {
-        expect(shallow(<Header />).is('.header-wrapper')).toBe(true);
-    });*/
+    // it('should be dispatch Header', function() {
+    //     const wrapper = shallow(<Header dispatch={dispatch} store={mockStore({ runtime: {}, movies:[] })}/>);
+    // });
 
-    it('should render an `.logo`', () => {
-        const wrapper = shallow(<Header />);
+    /*it('should render an `.logo`', () => {
+        const wrapper = shallow(<Header dispatch={'some'} store={mockStore({ runtime: {}, movies:[] })}/>);
         console.log('wrapper' , wrapper)
-        // expect(wrapper.find('.logo')).to.have.length(1);
-    });
+        expect(wrapper.find('.logo')).to.have.length(1);
+    });*/
 
    /* it('should render children when passed in', () => {
         const wrapper = shallow(<Header />);

@@ -5,6 +5,7 @@ exports[`<search SearchButton /> should render SearchButton without errors 1`] =
   className="search-button"
 >
   <button
+    onClick={undefined}
     style={
       Object {
         "background": "#F44336",
