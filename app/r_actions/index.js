@@ -27,9 +27,9 @@ export const addError = (message) =>
 
 export const suggestMovies = value => dispatch => {
     
-    dispatch({
-        type: 'SHOW_ALL_MOVIE'
-    })
+    // dispatch({
+    //     type: 'SHOW_ALL_MOVIE'
+    // })
 
     fetch(apiUrl+value)
         .then(response => response.json())
