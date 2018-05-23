@@ -1,44 +1,44 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-export const ResultsBodyItem = ({title, genre, releaseDate,src}) => (
+export const ResultsBodyItem = ({title, genres=[], release_date, poster_path}) => (
     <li>
-        <img src={src}
+        <img src={poster_path}
              alt={title}/>
         <div className="col-50">
             <p className={'title'}>{title}</p>
-            <p className={'genre'}>{genre}</p>
+            <p>
+              {genres.map((genre, index) => (
+                <span className={'genre'} key={index}>{genre} </span>
+              ))}
+            </p>
         </div>
         <div className={'col-50 text-align-right'}>
-            <span className={'release-date'}>{releaseDate}</span>
+            <span className={'release-date'}>{release_date}</span>
         </div>
 
     </li>
 );
 
-export const ResultsBody = () => {
-    const urlImgHost = 'https://images.pexels.com/photos';
-    const urlImgQuery = '?auto=compress&cs=tinysrgb&h=350';
+ResultsBodyItem.propTypes = {
+    // onClick: PropTypes.func.isRequired,
+    // isActive: PropTypes.bool.isRequired,
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    releaseDate: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired
+}
+
+
+export const ResultsBody = ({ movies = [], onMovieClick }) => {
+    console.log('ResultsBody', movies);
+
     return (
         <div className='results-list-box'>
             <ul className='results-list'>
-                <ResultsBodyItem
-                    title={`Movie title 1`}
-                    genre={`Drama`}
-                    releaseDate={`1995`}
-                    src={`${urlImgHost}/460307/pexels-photo-460307.jpeg${urlImgQuery}`}
-                />
-                <ResultsBodyItem
-                    title={`Movie title 2`}
-                    genre={`Comedy`}
-                    releaseDate={`1998`}
-                    src={`${urlImgHost}/257092/pexels-photo-257092.jpeg${urlImgQuery}`}
-                />
-                <ResultsBodyItem
-                    title={`Movie title 3`}
-                    genre={`Drama`}
-                    releaseDate={`1991`}
-                    src={`${urlImgHost}/374633/pexels-photo-374633.jpeg${urlImgQuery}`}
-                />
+                {movies.map((movie, index) => (
+                    <ResultsBodyItem key={index} {...movie} onClick={() => onMovieClick(index)} />
+                ))}
             </ul>
         </div>
     )
@@ -48,7 +48,7 @@ export default class ResultsBox extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <ResultsBody></ResultsBody>
+                <ResultsBody movies={this.props.movies}></ResultsBody>
             </React.Fragment>
         )
     }

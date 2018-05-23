@@ -15,7 +15,7 @@ const pluginsWebpack = [
     }),
     new HtmlWebpackPlugin({
         filename: 'index.html',
-        template: path.join(libPath, 'index.html')
+        template: path.join(__dirname, 'index.html')
     })
 ];
 

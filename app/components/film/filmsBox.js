@@ -3,12 +3,17 @@ import React from 'react';
 import {FilmsTitle} from './filmsParts/filmsTitle';
 import {FilmsCover} from './filmsParts/filmsCover';
 import {FilmsDescription} from './filmsParts/filmsDescription';
-import {FilmsSortBy} from './filmsParts/filmsSortBy';
+import FilmsSortBy from './filmsParts/filmsSortBy';
 import {FilmsList} from './filmsParts/filmsList';
-import {FilmsSearchButton} from './filmsParts/filmsSearchButton';
+import FilmsSearchButton from './filmsParts/filmsSearchButton';
 
+import { VisibilityFilters } from '../../r_actions'
 
 export default class FilmsBox extends React.Component {
+    // componentDidMount(){
+    //   this.props.fetchCart();
+    // }
+
     render() {
         return (
             <div className='films films-box-wrapper'>
@@ -38,7 +43,22 @@ export default class FilmsBox extends React.Component {
                     </div>
                 </div>
                 <div className='results results-wrapper'>
-                    <FilmsSortBy genre={'Drama'}></FilmsSortBy>
+                    <FilmsSortBy
+                        filter={'SHOW_DRAMA'}
+                        name = {'show Drama'}
+                        theme={'white'}
+                    />
+
+                    <FilmsSortBy
+                        theme={'white'}
+                        filter={'SHOW_COMEDY'}
+                        name = {'show Comedy'}
+                    />
+                    <FilmsSortBy
+                        theme={'white'}
+                        filter={'SHOW_COMEDY'}
+                        name = {'fetch'}
+                    />
                 </div>
                 <FilmsList></FilmsList>
             </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import {Button} from '../../common/button';
+import PropTypes from 'prop-types'
 
-export const FilmsSearchButton  = props => {
+const FilmsSearchButton  = props => {
     const stylesWhite = {
         background: 'white',
         border: 'none',
@@ -11,6 +12,17 @@ export const FilmsSearchButton  = props => {
     const theme = (props.theme) ? `${props.theme}-theme` : '';
 
     return <div className={`${theme} col-66 text-align-right`}>
-            <Button style={stylesWhite}>{props.name}</Button>
+            <Button
+                onClick = {props.onClick}
+                style={stylesWhite}
+            >{props.name}</Button>
         </div>
 };
+
+FilmsSearchButton.propTypes = {
+    name: PropTypes.string.isRequired,
+    theme: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
+};
+
+export default FilmsSearchButton
