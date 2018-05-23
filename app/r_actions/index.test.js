@@ -1,4 +1,4 @@
-import {addError,showAll,suggestMovies } from './index'
+import {addError,showAll,suggestMovies, fetchMovieByNameSuccess,fetchMovieByName } from './index'
 
 describe('>>>A C T I O N --- Test',()=>{
     it('+++ actionCreator addError', () => {
@@ -10,7 +10,23 @@ describe('>>>A C T I O N --- Test',()=>{
         expect(add).toEqual({type:"SHOW_ALL", payload:50})
     });
     it('+++ actionCreator suggestMovies ', () => {
-        const subtract = suggestMovies()
-        expect(subtract).toEqual({type:"SHOW_ALL_MOVIE"})
+        //TODO
+        const subtract = suggestMovies('value')()
+        // expect(subtract).toEqual({type:"SHOW_ALL_MOVIE"})
+    });
+    it('+++ actionCreator fetchMovieByNameSuccess ', () => {
+        const subtract = fetchMovieByNameSuccess([]);
+        expect(subtract).toEqual({
+            type: 'FETCH_MOVIES_BY_NAME_SUCCESS',
+            payload: []
+        })
+    });
+    it('+++ actionCreator fetchMovieByName ', () => {
+        //TODO
+        const subtract = fetchMovieByName('movieTitle', 'searchBy')();
+        // expect(subtract).toEqual({
+        //     type: 'FETCH_MOVIES_BY_NAME_SUCCESS',
+        //     payload: []
+        // })
     });
 });

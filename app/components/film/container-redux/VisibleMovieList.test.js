@@ -1,8 +1,17 @@
 
-import {getVisibleMovie} from './VisibleMovieList';
+import {getVisibleMovie, mapStateToProps, mapDispatchToProps } from './VisibleMovieList';
+import VisibleTodoList from "./VisibleMovieList";
 // import renderer from "react-test-renderer";
 
 describe('VisibleMovieList', () => {
+    it('run mapStateToProps', () => {
+        const wrapper = mapStateToProps({movies:[], visibilityFilter: true});
+        expect(wrapper).toEqual({"movies": []});
+    })
+    it('run mapStateToProps', () => {
+        const wrapper = mapStateToProps({movies:[], visibilityFilter: true});
+        expect(wrapper).toEqual({"movies": []});
+    })
     it('getVisibleMovie test SHOW_ALL', () => {
         const movies = [{
             name:'test',
@@ -12,7 +21,7 @@ describe('VisibleMovieList', () => {
             genre: 'Comedy'
         }];
         const case1 = getVisibleMovie(movies, 'SHOW_ALL');
-        expect(case1).toBe([{
+        expect(case1).toEqual([{
             name:'test',
             genre: 'Drama2'
         },{
@@ -29,12 +38,12 @@ describe('VisibleMovieList', () => {
             genre: 'Comedy'
         }];
         const case1 = getVisibleMovie(movies, 'SHOW_DRAMA');
-        expect(case1).toBe([{
+        expect(case1).toEqual([{
             name:'test',
             genre: 'Drama2'
         }]);
     });
-    it('moviesMetaData test FETCH_MOVIES_META_BY_NAME_SUCCESS', () => {
+    it('moviesMetaData test SHOW_COMEDY', () => {
         const movies = [{
             name:'test',
             genre: 'Drama2'
@@ -43,7 +52,7 @@ describe('VisibleMovieList', () => {
             genre: 'Comedy'
         }];
         const case1 = getVisibleMovie(movies, 'SHOW_COMEDY');
-        expect(case1).toBe([{
+        expect(case1).toEqual([{
             name:'test2',
             genre: 'Comedy'
         }]);

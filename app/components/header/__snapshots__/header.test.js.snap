@@ -1,34 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should render without errors 1`] = `
-<header>
-  <div
-    className="header-wrapper"
-  >
-    <div
-      className="logo"
-    >
-      netfixroulette
-    </div>
-    <SearchField
-      val="Search by name"
-    />
-    <div
-      className="search-filter"
-    >
-      <SearchFilter />
-      <SearchButton />
-    </div>
-  </div>
-  <div
-    className="results results-wrapper"
-  >
-    <ResultsCount
-      count={7}
-    />
-    <ResultsSort
-      activeItem={1}
-    />
-  </div>
-</header>
+<Header
+  dispatch={[Function]}
+  fetchMovie={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+  totalMovies={0}
+/>
 `;

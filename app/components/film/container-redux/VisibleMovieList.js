@@ -22,7 +22,7 @@ export const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
     // console.log('___ =VisibleTodoList= onTodoClick');
     //Do nothing
     return {
@@ -33,11 +33,10 @@ const mapDispatchToProps = dispatch => {
             }))
         }
     }
-}
+}*/
 
 const VisibleTodoList = connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(ResultsBody);
 
 export default VisibleTodoList
