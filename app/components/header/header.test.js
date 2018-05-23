@@ -3,10 +3,16 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Header from "./header";
 import { shallow } from 'enzyme'
+// const dispatch = sinon.spy();
 
 describe('Header', function () {
     it('should render without errors', () => {
         // const wrapper = renderer.create(<MainLayout/>)
+        const wrapper = shallow(
+            <Test dispatch={dispatch} store={mockStore({ runtime: {} })}
+                  testData={fakeTestData}
+            />
+        );
         const wrapper = shallow(<Header/>);
         expect(wrapper).toMatchSnapshot();
     });
@@ -18,7 +24,7 @@ describe('Header', function () {
     it('should render an `.logo`', () => {
         const wrapper = shallow(<Header />);
         console.log('wrapper' , wrapper)
-        // expect(wrapper.find('.logo')).to.have.length(1);
+        expect(wrapper.find('.logo')).to.have.length(1);
     });
 
    /* it('should render children when passed in', () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button} from '../../common/button';
 
-export const SearchButton = () => {
+export const SearchButton = ({onClick}) => {
     return <div className={'search-button'}>
-        <Button>search</Button>
+        <Button onClick={onClick}>search</Button>
     </div>
 };

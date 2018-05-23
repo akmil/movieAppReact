@@ -4,7 +4,7 @@ exports[`MainLayout should render without errors 1`] = `
 <div
   className="main-layout-wrapper"
 >
-  <Header />
+  <Connect(Header) />
   <ResultsBox />
   <FilmsBox />
 </div>

@@ -1,48 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`resultsBox should render without errors ResultsBody 1`] = `
-<div
-  className="results-list-box"
->
-  <ul
-    className="results-list"
-  >
-    <ResultsBodyItem
-      genre="Drama2"
-      key="0"
-      onClick={[Function]}
-      releaseDate="1299"
-      src="https://images.pexels.com/photos/460307/pexels-photo-460307.jpeg?auto=compress&cs=tinysrgb&h=350"
-      title="Movie title 4"
-    />
-    <ResultsBodyItem
-      genre="Drama2"
-      key="1"
-      onClick={[Function]}
-      releaseDate="1395"
-      src="https://images.pexels.com/photos/460307/pexels-photo-460307.jpeg?auto=compress&cs=tinysrgb&h=350"
-      title="Movie title 5"
-    />
-    <ResultsBodyItem
-      genre="Drama"
-      releaseDate="1995"
-      src="https://images.pexels.com/photos/460307/pexels-photo-460307.jpeg?auto=compress&cs=tinysrgb&h=350"
-      title="Movie title 1"
-    />
-    <ResultsBodyItem
-      genre="Comedy"
-      releaseDate="1998"
-      src="https://images.pexels.com/photos/257092/pexels-photo-257092.jpeg?auto=compress&cs=tinysrgb&h=350"
-      title="Movie title 2"
-    />
-    <ResultsBodyItem
-      genre="Drama"
-      releaseDate="1991"
-      src="https://images.pexels.com/photos/374633/pexels-photo-374633.jpeg?auto=compress&cs=tinysrgb&h=350"
-      title="Movie title 3"
-    />
-  </ul>
-</div>
+<React.Fragment>
+  <FilmsList />
+</React.Fragment>
 `;
 
 exports[`resultsBox should render without errors ResultsBody 2`] = `

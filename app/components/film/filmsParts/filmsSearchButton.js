@@ -22,7 +22,7 @@ const FilmsSearchButton  = props => {
 FilmsSearchButton.propTypes = {
     name: PropTypes.string.isRequired,
     theme: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    // onClick: PropTypes.func.isRequired
 };
 
 export default FilmsSearchButton
