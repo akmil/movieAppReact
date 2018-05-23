@@ -6,6 +6,14 @@ exports[`ResultsBody should render without errors ResultsBody 1`] = `
 >
   <ul
     className="results-list"
-  />
+  >
+    <ResultsBodyItem
+      0="b"
+      1="o"
+      2="o"
+      key="0"
+      onClick={[Function]}
+    />
+  </ul>
 </div>
 `;

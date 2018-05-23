@@ -6,7 +6,7 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import configureStore from 'redux-mock-store';
 const mockStore = configureStore();
-const dispatch = sinon.spy();
+const dispatch = jest.fn();
 
 describe('Header', function () {
     it('should render without errors', () => {

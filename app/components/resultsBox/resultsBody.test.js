@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 
 describe('ResultsBody', function () {
     it('should render without errors ResultsBody', () => {
-        const wrapper = shallow(<ResultsBody/>);
+        const wrapper = shallow(<ResultsBody  movies = {['boo']} onMovieClick={jest.fn()}/>);
         expect(wrapper).toMatchSnapshot();
     });
 });
