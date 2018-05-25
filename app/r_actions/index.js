@@ -1,4 +1,3 @@
-let nextTodoId = 0;
 const apiUrl = 'http://react-cdp-api.herokuapp.com/';
 
 export const setVisibilityFilter = filter => ({
@@ -12,7 +11,6 @@ export const showAll = (payload) => ({
 })
 
 export const VisibilityFilters = {
-    SHOW_DRAMA: 'UPD_ALL_MOVIE',
     SHOW_DRAMA: 'SHOW_ALL_MOVIE',
     SHOW_ALL: 'SHOW_ALL',
     SHOW_COMPLETED: 'SHOW_COMPLETED',
@@ -38,7 +36,6 @@ export const suggestMovies = value => dispatch => {
                 type: 'UPD_ALL_MOVIE',
                 payload: suggestions
             })
-            // console.log(suggestions);
           }
         )
         .catch(({message}) =>
@@ -62,16 +59,34 @@ export const fetchMovieByName = (movieTitle, searchBy) => dispatch => {
   fetch(`${apiUrl}movies?search=${movieTitle}&searchBy=${searchBy}`)
       .then(response => response.json())
       .then(response =>{
-          console.log('response', response.data);
           dispatch(fetchMovieByNameSuccess(response.data));
-          // dispatch(fetchMovieMetaByNameSuccess());
-          dispatch({
-              type: 'FETCH_MOVIES_META_BY_NAME_SUCCESS',
-              payload: response
-          })
         }
       )
       .catch(error => {
         throw(error);
       });
+}
+
+export const fetchMovieByIdSuccess = (movie) => {
+    console.log('fetchMovieByNameSuccess', movie);
+    return {
+        type: 'FETCH_MOVIES_BY_ID_SUCCESS',
+        payload: movie
+    }
+};
+
+export const fetchMovieById = (id) => dispatch => {
+    const promise = fetch(`${apiUrl}movies/${id}`)
+        .then(response => response.json());
+
+    promise
+      .then(response =>{
+          dispatch(fetchMovieByIdSuccess(response));
+        }
+      )
+      .catch(error => {
+        throw(error);
+      });
+
+    return promise
 }

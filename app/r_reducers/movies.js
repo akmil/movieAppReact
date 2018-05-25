@@ -4,32 +4,14 @@
     {id:123, text:'hello 3', genre: 'Drama2'}
     ];*/
 
-const urlImgHost = 'https://images.pexels.com/photos';
-const urlImgQuery = '?auto=compress&cs=tinysrgb&h=350';
-const initialState = [{
-        title:`Movie title 4`,
-        genres:[`Drama2`],
-        release_date:`1299`,
-        src:`${urlImgHost}/460304/pexels-photo-460304.jpeg${urlImgQuery}`
-    },
-    {
-        title:`Movie title Comedy`,
-        genres:[`Comedy`],
-        release_date:`1395`,
-        src:`${urlImgHost}/460305/pexels-photo-460305.jpeg${urlImgQuery}`
-    },
-    {
-        title:`Movie title 5`,
-        genres:[`Drama2`],
-        release_date:`1395`,
-        src:`${urlImgHost}/460307/pexels-photo-460307.jpeg${urlImgQuery}`
-    }
-];
+// const urlImgHost = 'https://images.pexels.com/photos';
+// const urlImgQuery = '?auto=compress&cs=tinysrgb&h=350';
+const initialState = [];
 
 const movies = (state = initialState, action) => {
     switch (action.type) {
         case 'UPD_ALL_MOVIE':
-              // console.log('UPD_ALL_MOVIE', action.payload.data);
+              console.log('UPD_ALL_MOVIE', action.payload.data);
               return action.payload.data
 
         case 'FETCH_MOVIES_BY_NAME_SUCCESS':

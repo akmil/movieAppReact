@@ -7,7 +7,6 @@ import {ResultsCount, ResultsSort} from "./resultsPanel";
 import { connect } from 'react-redux';
 import * as actions from '../../r_actions/index'
 
-let titleInput;
 
 class Header extends React.Component {
     constructor(props){
@@ -16,12 +15,6 @@ class Header extends React.Component {
       this.handleInputChange = this.handleInputChange.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
-    
-    // componentDidMount(){
-    //   this.setState({sortBy: 'title'});
-    // }
-
-
 
     handleInputChange = (event) => {
         this.setState({text: event.target.value});
@@ -29,7 +22,13 @@ class Header extends React.Component {
 
     handleFormSubmit(e) {
         e.preventDefault();
+
+        // Move to didMount of the Search page component
         this.props.fetchMovie(this.state.text, this.state.sortBy);
+
+        //do on Home page
+        // router.redirect('/search/${query}')
+        // history.push(location)
     }
 
     setGenre(genre){
@@ -43,6 +42,7 @@ class Header extends React.Component {
             <header>
                 <div className="header-wrapper">
                     <form className="form-horizontal"
+                          action={"/search/${query}"}
                           onSubmit={this.handleFormSubmit}
                     >
                     <div className='logo'>netfixroulette</div>
@@ -71,27 +71,22 @@ class Header extends React.Component {
                     </div>
                   </form>
                 </div>
-                <div className='results results-wrapper'>
-                    <ResultsCount count={this.getTotal()}></ResultsCount>
-                    <ResultsSort activeItem={1}></ResultsSort>
-                </div>
+                { this.getTotal() > 0 &&
+                    <div className='results results-wrapper'>
+                        <ResultsCount count={this.getTotal()}></ResultsCount>
+                        <ResultsSort activeItem={1}></ResultsSort>
+                    </div>
+                }
             </header>
         )
     }
 }
 const mapStateToProps = (state, ownProps) => {
-    // console.log('ownProps', ownProps, state);
   return {
     sortBy: state.sortBy,
     totalMovies: state.movies.length
   }
 };
-
-/*const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchMovie: (name, sortBy) => dispatch(actions.fetchMovieByName(name, sortBy))
-    }
-};*/
 
 const mapDispatchToProps = ({
     fetchMovie: actions.fetchMovieByName,
