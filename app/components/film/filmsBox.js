@@ -7,37 +7,52 @@ import FilmsSortBy from './filmsParts/filmsSortBy';
 import {FilmsList} from './filmsParts/filmsList';
 import FilmsSearchButton from './filmsParts/filmsSearchButton';
 
-import { VisibilityFilters } from '../../r_actions'
+// import { VisibilityFilters } from '../../r_actions'
+import * as actions from "../../r_actions";
+import {connect} from "react-redux";
 
-export default class FilmsBox extends React.Component {
-    // componentDidMount(){
-    //   this.props.fetchCart();
-    // }
+class FilmsBox extends React.Component {
+    constructor(props){
+        super(props);
+        // this.state = {sortBy: 'title'}
+        // this.handleInputChange = this.handleInputChange.bind(this);
+        // this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.state = {detailMovie: {title:''}}
+    }
+
+    componentDidMount(){
+        // const self = this;
+        this.props.fetchMovieById(this.props.match.params.id)
+            .then(res => {
+                this.setState({detailMovie : res});
+                console.log(this.state, res);
+            })
+        // this.props.detailMovie = detailMovie;
+        // this.setState(detailMovie);
+
+
+    }
 
     render() {
         return (
             <div className='films films-box-wrapper'>
+                <p>films-box: <b>{this.props.match.params.id}</b></p>
                 <div className='films-box-header'>
                     <div className='logo col-33'>netfixroulette</div>
                     <FilmsSearchButton name={'FilmsSearchButton'} theme={'white'}/>
                     <div className={'d-flex'}>
-                        <FilmsCover src={'https://images.pexels.com/photos/584302/pexels-photo-584302.jpeg?auto=compress&cs=tinysrgb&h=350'}/>
+                        <FilmsCover src={this.state.detailMovie.poster_path}/>
                         <div className='films-box-body'>
                             <FilmsTitle activeClass={'activeClass'}
-                                        title={'Pulp fiction'}
-                                        rate={8.2}
+                                        title={this.state.detailMovie.title}
+                                        rate={this.state.detailMovie.vote_average}
                             />
                             <div className='mb-3'>
-                                <span className='mr-3 release'>1995</span>
-                                <span className='ml-3 duration'>100</span>
+                                <span className='mr-3 release'>{this.state.detailMovie.release_date}</span>
+                                <span className='ml-3 duration'>{this.state.detailMovie.runtime}</span>
                             </div>
                             <FilmsDescription
-                                description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ' +
-                                'tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis ' +
-                                'nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ' +
-                                'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu ' +
-                                'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa ' +
-                                'qui officia deserunt mollit anim id est laborum.'}
+                                description={this.state.detailMovie.overview}
                             />
                         </div>
                     </div>
@@ -65,3 +80,17 @@ export default class FilmsBox extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    // console.log('ownProps', ownProps, state);
+    return {
+        sortBy: state.sortBy,
+        totalMovies: state.movies.length
+    }
+};
+
+const mapDispatchToProps = ({
+    fetchMovieById: actions.fetchMovieById,
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilmsBox);

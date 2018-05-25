@@ -1,8 +1,6 @@
-import { VisibilityFilters } from '../r_actions';
-import movies from './movies';
-// import {moviesInitial} from './movies';
+import { VisibilityFilters } from '../r_actions/index';
 
-const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
+const visibilityFilter = (state = 'SHOW_ALL', action) => {
     /*console.log(
         movies.filter(t => t.genre === t.filter)
     );*/
