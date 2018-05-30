@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setVisibilityFilter, showAll, suggestMovies } from '../../../r_actions';
-import * as bookActions from '../../../r_actions';
+import { suggestMovies } from '../../../r_actions';
 import FilmsSearchButton from './filmsSearchButton';
 
 export const getVisibleMovie = (movies, filter) => {
     // console.log('**filmsSortBy.getVisibleMovie', filter);
     switch (filter) {
         case 'SHOW_DRAMA':
-            console.log('==== filmsSortBy.getVisibleMovie ===',filter, movies.filter(t => t.genre === 'Drama2'));
+            // console.log('==== filmsSortBy.getVisibleMovie ===',filter, movies.filter(t => t.genre === 'Drama2'));
             return movies.filter(t => t.genre === 'Drama2');
         case 'SHOW_COMEDY':
             return movies.filter(t => t.genre === 'Comedy');

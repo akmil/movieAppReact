@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About and FourOhFour should render About without errors 1`] = `
+<p>
+  About tab: 
+  tabName
+  , and section: 
+  sectionTestName
+</p>
+`;
+
+exports[`About and FourOhFour should render FourOhFour without errors 1`] = `
+<p>
+  404 Not found
+</p>
+`;
+
+exports[`About and FourOhFour should render PagesList without errors 1`] = `
+<div>
+  <ul>
+    <li>
+      <Link
+        replace={false}
+        to="/home"
+      >
+        Home
+      </Link>
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/details/movieName"
+      >
+        Details
+      </Link>
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/about/company/employees"
+      >
+        About
+      </Link>
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/workers"
+      >
+        Workers(redirect)
+      </Link>
+    </li>
+    <li>
+      <Link
+        replace={false}
+        to="/some-page"
+      >
+        goto 404
+      </Link>
+    </li>
+  </ul>
+</div>
+`;

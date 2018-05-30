@@ -1,16 +1,16 @@
-
-import {getVisibleMovie, mapStateToProps, mapDispatchToProps } from './VisibleMovieList';
+import {getVisibleMovie, mapStateToProps } from './VisibleMovieList';
 import VisibleTodoList from "./VisibleMovieList";
 // import renderer from "react-test-renderer";
 
 describe('VisibleMovieList', () => {
     it('run mapStateToProps', () => {
-        const wrapper = mapStateToProps({movies:[], visibilityFilter: true});
+        const wrapper = mapStateToProps({movies:[], relatedMovies:[], visibilityFilter: true});
         expect(wrapper).toEqual({"movies": []});
-    })
-    it('run mapStateToProps', () => {
-        const wrapper = mapStateToProps({movies:[], visibilityFilter: true});
-        expect(wrapper).toEqual({"movies": []});
+    });
+    it('run not empty mapStateToProps', () => {
+        const stateLocal = {relatedMovies:['relatedMovies'], visibilityFilter: true};
+        const wrapper = mapStateToProps(stateLocal);
+        expect(wrapper).toEqual({"movies": ["relatedMovies"]});
     })
     it('getVisibleMovie test SHOW_ALL', () => {
         const movies = [{
