@@ -7,30 +7,29 @@ import FilmsSortBy from './filmsParts/filmsSortBy';
 import {FilmsList} from './filmsParts/filmsList';
 import FilmsSearchButton from './filmsParts/filmsSearchButton';
 
-// import { VisibilityFilters } from '../../r_actions'
 import * as actions from "../../r_actions";
 import {connect} from "react-redux";
 
 class FilmsBox extends React.Component {
     constructor(props){
         super(props);
-        // this.state = {sortBy: 'title'}
+        this.state = {detailMovie: {title:''}}
         // this.handleInputChange = this.handleInputChange.bind(this);
         // this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.state = {detailMovie: {title:''}}
     }
 
     componentDidMount(){
-        // const self = this;
         this.props.fetchMovieById(this.props.match.params.id)
             .then(res => {
                 this.setState({detailMovie : res});
-                console.log(this.state, res);
+
+                //move to componentDidUpdate
+                this.props.fetchMovieGenre(res.genres[0])
+                    .then(res => {
+                        this.setState({relatedMovies : res});
+                        console.log(this.state, res);
+                    })
             })
-        // this.props.detailMovie = detailMovie;
-        // this.setState(detailMovie);
-
-
     }
 
     render() {
@@ -58,7 +57,7 @@ class FilmsBox extends React.Component {
                     </div>
                 </div>
                 <div className='results results-wrapper'>
-                    <FilmsSortBy
+                    {/*<FilmsSortBy
                         filter={'SHOW_DRAMA'}
                         name = {'show Drama'}
                         theme={'white'}
@@ -73,7 +72,7 @@ class FilmsBox extends React.Component {
                         theme={'white'}
                         filter={'SHOW_COMEDY'}
                         name = {'fetch'}
-                    />
+                    />*/}
                 </div>
                 <FilmsList></FilmsList>
             </div>
@@ -91,6 +90,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = ({
     fetchMovieById: actions.fetchMovieById,
+    fetchMovieGenre: actions.fetchMovieGenre
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilmsBox);

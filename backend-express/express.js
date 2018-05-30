@@ -1,8 +1,19 @@
-var express = require('express')
-var app = express()
+var express = require('express');
+var server = express();
+var port = 8080;
 
-app.get('/', function (req, res) {
+server.use('/public', express.static(__dirname + '/public'));
+
+server.get('/*', function(req, res){
+    res.sendFile(__dirname + './../index.html');
+});
+
+server.get('/workers', function (req, res) {
     res.send('Hello World')
 })
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+server.listen(port, function() {
+    console.log('server listening on port ' + port);
+});
+
+// server.listen(8080, () => console.log('Example app listening on port 3000!'))

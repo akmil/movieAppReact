@@ -17,8 +17,21 @@ export const getVisibleMovie = (movies, filter) => {
 }
 
 export const mapStateToProps = state => {
+
+    if(state.relatedMovies.length > 0) {
+        console.log('state.movies.length', state.relatedMovies)
+        return {
+            movies: getVisibleMovie(
+                state.relatedMovies,
+                state.visibilityFilter
+            )
+        }
+    }
     return {
-        movies: getVisibleMovie(state.movies, state.visibilityFilter)
+        movies: getVisibleMovie(
+            state.movies,
+            state.visibilityFilter
+        )
     }
 }
 

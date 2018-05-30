@@ -63,6 +63,7 @@ const config = {
     plugins: pluginsWebpack,
     devServer: {
         contentBase: './dist',
+        historyApiFallback: true, //to serve the index.html instead of an 404 error when no other resource has been found at this location.
         hot: true
     }
 };

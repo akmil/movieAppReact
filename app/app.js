@@ -3,9 +3,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+
 // import routes from './routes';
 // import * as movieActions from './r_actions/index';
 import HomeLayout from './homeLayout';
+import Search from './search';
 import PagesList from './pagesList';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,8 +20,6 @@ import configureStore from './r_store/configureStore.dev';
 const store = configureStore();
 // store.dispatch(movieActions.suggestMovies('movies'));
 
-
-const Search = HomeLayout;
 render(
     <Router>
       <Provider store={store}>

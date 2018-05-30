@@ -45,21 +45,50 @@ export const suggestMovies = value => dispatch => {
         )
 }
 
-export const fetchMovieByNameSuccess = (movies) => {
-  console.log('fetchMovieByNameSuccess', movies);
+export const fetchMovieGenreSuccess = (movies) => {
+  console.log('fetchMovieGenreSuccess', movies);
+  return {
+    type: 'FETCH_MOVIES_BY_GENRE_SUCCESS',
+    payload: movies
+  }
+};
+
+export const fetchMovieGenre = (genre) => dispatch => {
+    console.log('searchBy', genre);
+    const url = `${apiUrl}movies?search=${genre}&searchBy=genres`;
+
+
+    const promise = fetch(url)
+        .then(response => response.json());
+
+    promise
+      .then(response =>{
+          dispatch(fetchMovieGenreSuccess(response.data));
+        }
+      )
+      .catch(error => {
+        throw(error);
+      });
+
+    return promise
+}
+
+export const fetchMovieByQuerySuccess = (movies) => {
+  console.log('fetchMovieByQuerySuccess', movies);
   return {
     type: 'FETCH_MOVIES_BY_NAME_SUCCESS',
     payload: movies
   }
 };
 
-export const fetchMovieByName = (movieTitle, searchBy) => dispatch => {
-  console.log('searchBy', searchBy);
+export const fetchMovieByQuery = (query) => dispatch => {
+  console.log('searchBy', query);
+  var url = `${apiUrl}movies?${query}`;
 
-  fetch(`${apiUrl}movies?search=${movieTitle}&searchBy=${searchBy}`)
+  fetch(url)
       .then(response => response.json())
       .then(response =>{
-          dispatch(fetchMovieByNameSuccess(response.data));
+          dispatch(fetchMovieByQuerySuccess(response.data));
         }
       )
       .catch(error => {

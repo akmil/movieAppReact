@@ -1,8 +1,15 @@
 import React from 'react';
 import {SearchButton} from "./search/searchButton";
-import {SearchFilter} from "./search/searchFilter";
+// import {SearchFilter} from "./search/searchFilter";
 import {SearchField} from "./search/searchField";
 import {ResultsCount, ResultsSort} from "./resultsPanel";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Redirect,
+    withRouter
+} from "react-router-dom";
 
 import { connect } from 'react-redux';
 import * as actions from '../../r_actions/index'
@@ -11,7 +18,7 @@ import * as actions from '../../r_actions/index'
 class Header extends React.Component {
     constructor(props){
       super(props);
-      this.state = {sortBy: 'title'}
+      this.state = {sortBy: 'title', text: ''};
       this.handleInputChange = this.handleInputChange.bind(this);
       this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
@@ -23,19 +30,29 @@ class Header extends React.Component {
     handleFormSubmit(e) {
         e.preventDefault();
 
-        // Move to didMount of the Search page component
-        this.props.fetchMovie(this.state.text, this.state.sortBy);
+        // console.log('Search match.params', this.props.match);
 
-        //do on Home page
-        // router.redirect('/search/${query}')
-        // history.push(location)
+        if(!this.props.match || !this.props.match.query){
+            let location = `/search/search=${this.state.text}&searchBy=${this.state.sortBy}`;
+            // console.log('location', location, this.props);
+            this.props.history.push(location)
+        }
+
     }
 
     setGenre(genre){
       this.setState({sortBy: genre});
     }
 
-    getTotal = () => this.props.totalMovies
+    getTotal = () => this.props.totalMovies;
+
+    componentDidMount(){
+        // var query= `search=${this.state.text}&searchBy=${this.state.sortBy}`;
+
+        if(this.props.query){
+            this.props.fetchMovieByQuery(this.props.query);
+        }
+    }
 
     render() {
         return (
@@ -67,7 +84,7 @@ class Header extends React.Component {
                                 </li>
                             </ul>
                         </div>
-                        <SearchButton/>
+                        <SearchButton />
                     </div>
                   </form>
                 </div>
@@ -89,7 +106,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = ({
-    fetchMovie: actions.fetchMovieByName,
+    // fetchMovie: actions.fetchMovieByName,
+    fetchMovieByQuery: actions.fetchMovieByQuery,
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
