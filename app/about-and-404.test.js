@@ -7,7 +7,7 @@ import { shallow } from 'enzyme'
 import PagesList from "./pagesList";
 import Search from "./search";
 
-describe('About and FourOhFour', function () {
+describe('About, FourOhFour, PagesList, Search', function () {
     it('should render About without errors', () => {
       // const wrapper = renderer.create(<About/>)
         const wrapper = shallow(<About match={ {params:{tab:"tabName", section: 'sectionTestName'}} }/>);
@@ -26,9 +26,11 @@ describe('About and FourOhFour', function () {
         expect(wrapper).toMatchSnapshot();
     })
 
-    it('should render PagesList without errors', () => {
+    it('should render Search without errors', () => {
       // const wrapper = renderer.create(<FourOhFour/>)
-        const wrapper = shallow(<Search/>);
+        const wrapper = shallow(
+            <Search match={ {params:{query:"querySearch"}} }/>
+        );
         expect(wrapper).toMatchSnapshot();
     })
 
