@@ -1,14 +1,18 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
+
 import Header from "./header";
-import { shallow, mount } from 'enzyme'
-import sinon from 'sinon'
+import { withRouter } from 'react-router';
+
+import { shallow, mount } from 'enzyme';
+import sinon from 'sinon';
 import configureStore from 'redux-mock-store';
 import {SearchField} from "./search/searchField";
 const initialState = {runtime: {}, movies:[]};
 const mockStore = configureStore();
 const dispatch = jest.fn();
+const history = {
+    push: jest.fn(),
+}
 
 describe('Header', function () {
     it('should render without errors', () => {
@@ -35,20 +39,6 @@ describe('Header', function () {
 
         expect(wrapper.state()).toEqual({"sortBy": "title", "text": "hello world"})
     });
-
-    /*it('should render without errors', () => {
-        const store = mockStore(initialState);
-        const wrapper = mount(
-            <Header dispatch={dispatch}
-                    store={store}
-            />
-        );
-        expect(wrapper).toMatchSnapshot();
-    });*/
-
-    // it('should be dispatch Header', function() {
-    //     const wrapper = shallow(<Header dispatch={dispatch} store={mockStore({ runtime: {}, movies:[] })}/>);
-    // });
 
     it('should render an `.logo`', () => {
         const wrapper = shallow(

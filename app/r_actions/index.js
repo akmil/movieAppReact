@@ -46,7 +46,7 @@ export const suggestMovies = value => dispatch => {
 }
 
 export const fetchMovieGenreSuccess = (movies) => {
-  console.log('fetchMovieGenreSuccess', movies);
+  // console.log('fetchMovieGenreSuccess', movies);
   return {
     type: 'FETCH_MOVIES_BY_GENRE_SUCCESS',
     payload: movies
@@ -54,7 +54,7 @@ export const fetchMovieGenreSuccess = (movies) => {
 };
 
 export const fetchMovieGenre = (genre) => dispatch => {
-    console.log('searchBy', genre);
+    // console.log('searchBy', genre);
     const url = `${apiUrl}movies?search=${genre}&searchBy=genres`;
 
 
@@ -74,7 +74,7 @@ export const fetchMovieGenre = (genre) => dispatch => {
 }
 
 export const fetchMovieByQuerySuccess = (movies) => {
-  console.log('fetchMovieByQuerySuccess', movies);
+  // console.log('fetchMovieByQuerySuccess', movies);
   return {
     type: 'FETCH_MOVIES_BY_NAME_SUCCESS',
     payload: movies
@@ -82,7 +82,7 @@ export const fetchMovieByQuerySuccess = (movies) => {
 };
 
 export const fetchMovieByQuery = (query) => dispatch => {
-  console.log('searchBy', query);
+  // console.log('searchBy', query);
   var url = `${apiUrl}movies?${query}`;
 
   fetch(url)
@@ -97,7 +97,7 @@ export const fetchMovieByQuery = (query) => dispatch => {
 }
 
 export const fetchMovieByIdSuccess = (movie) => {
-    console.log('fetchMovieByNameSuccess', movie);
+    // console.log('fetchMovieByNameSuccess', movie);
     return {
         type: 'FETCH_MOVIES_BY_ID_SUCCESS',
         payload: movie

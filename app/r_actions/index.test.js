@@ -1,4 +1,13 @@
-import {setVisibilityFilter, addError,showAll,suggestMovies, fetchMovieByNameSuccess,fetchMovieByName } from './index'
+import {
+    setVisibilityFilter,
+    addError,
+    showAll,
+    suggestMovies,
+    fetchMovieGenreSuccess,
+    fetchMovieGenre,
+    fetchMovieByQuery,
+    fetchMovieById
+} from './index'
 
 describe('>>>A C T I O N --- Test',()=>{
     beforeEach(function() {
@@ -32,32 +41,52 @@ describe('>>>A C T I O N --- Test',()=>{
         const dispatch = jest.fn();
         const response = await suggestMovies('foo')(dispatch);
 
-        console.log('\n \n console ');
-        console.log(response);
+        console.log('\n \n console suggestMovies');
+        console.log(subtract);
+
 
         // expect(response.Id).toBe(1);
         // expect(subtract).toEqual({type:"SHOW_ALL_MOVIE"})
     });
-    it('+++ actionCreator fetchMovieByNameSuccess ', () => {
-        const subtract = fetchMovieByNameSuccess([]);
+
+    it('+++ actionCreator fetchMovieByQuery ', () => {
+        //TODO
+        const subtract = fetchMovieByQuery('query')()
+
+        // fetchMovieByQuery('query')().then(function(result) {
+        //     expect(result).toBe(true);
+        //     done();
+        // });
+    });
+
+    it('+++ actionCreator fetchMovieGenreSuccess ', () => {
+        const subtract = fetchMovieGenreSuccess(['movies']);
         expect(subtract).toEqual({
-            type: 'FETCH_MOVIES_BY_NAME_SUCCESS',
-            payload: []
+            type: 'FETCH_MOVIES_BY_GENRE_SUCCESS',
+            payload: ['movies']
         })
     });
+    it('+++ actionCreator fetchMovieGenre ', () => {
+        //check : return promise
+        fetchMovieGenre('genreName')().then(function(result) {
+            expect(result).toBe(true);
+            done();
+        });
+    });
+
+    it('+++ actionCreator fetchMovieById ', () => {
+        //check : return promise
+        fetchMovieById('query')().then(function(result) {
+            expect(result).toBe(true);
+            done();
+        });
+    });
+
     it('+++ actionCreator setVisibilityFilter ', () => {
         const subtract = setVisibilityFilter('filter');
         expect(subtract).toEqual({
             type: 'SHOW_COMEDY',
             filter: 'filter'
         })
-    });
-    it('+++ actionCreator fetchMovieByName ', () => {
-        //TODO
-        const subtract = fetchMovieByName('movieTitle', 'searchBy')();
-        // expect(subtract).toEqual({
-        //     type: 'FETCH_MOVIES_BY_NAME_SUCCESS',
-        //     payload: []
-        // })
     });
 });

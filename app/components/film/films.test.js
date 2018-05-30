@@ -4,7 +4,7 @@ import React from 'react';
 import FilmsBox from "./filmsBox";
 import { shallow } from 'enzyme'
 
-describe('Header', function () {
+describe('FilmsBox', function () {
     it('should render without errors', () => {
         // const wrapper = renderer.create(<MainLayout/>)
         const wrapper = shallow(<FilmsBox/>);
