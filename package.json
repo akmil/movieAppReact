@@ -9,17 +9,13 @@
     "cypress": "cypress open",
     "startExpress": "node ./backend-express/express.js",
     "start-Dev-Webpack4": "webpack-dev-server --config ./webpack.config.js --mode development",
-    "start-Prod-Webpack4": "webpack ./webpack.config.prod.js --mode production --progress --color"
+    "start-Prod-Webpack4": "webpack ./webpack.config.prod.js --mode production --progress --color",
+    "next-dev": "next",
+    "next-start": "next start",
+    "next-build": "next build"
   },
   "author": "pasha",
   "license": "ISC",
-  "babel": {
-    "presets": [
-      "env",
-      "react",
-      "stage-2"
-    ]
-  },
   "dependencies": {
     "create-react-class": "^15.6.3",
     "react": "^16.3.2",
@@ -28,6 +24,8 @@
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "@babel/preset-react": "7.0.0-beta.49",
     "autoprefixer": "^8.3.0",
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
@@ -52,6 +50,7 @@
     "jest": "^22.4.3",
     "jest-css-modules": "^1.1.0",
     "mini-css-extract-plugin": "^0.4.0",
+    "next": "^5.0.0",
     "node-sass": "^4.9.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "postcss-loader": "^2.1.4",

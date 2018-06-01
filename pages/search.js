@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './components/header/header';
-import ResultsBox from "../components/resultsBox/resultsBox";
+import Header from '../app/components/header/header';
+import ResultsBox from "../app/components/resultsBox/resultsBox";
 
 class Search extends React.Component {
 
