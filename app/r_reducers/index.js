@@ -6,9 +6,9 @@ import moviesMetaData from './moveMetaData';
 import visibilityFilter from './visibilityFilter';
 
 export default combineReducers({
-    movies,
-    moviesMetaData,
-    visibilityFilter,
-    relatedMovies,
-    movieDetails
-})
+  movies,
+  moviesMetaData,
+  visibilityFilter,
+  relatedMovies,
+  movieDetails,
+});

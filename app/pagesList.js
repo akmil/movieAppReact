@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class PagesList extends React.Component {
-    render() {
-        return (
+  render() {
+    return (
             <div >
                 <ul>
                     <li><Link to="/home">Home</Link></li>
@@ -15,8 +15,8 @@ class PagesList extends React.Component {
 
                 {this.props.children}
             </div>
-        )
-    }
+    );
+  }
 }
 
 export default PagesList;

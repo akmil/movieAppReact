@@ -1,13 +1,12 @@
 const initialState = [];
 
 const movieDetails = (state = initialState, action) => {
-    switch (action.type) {
+  switch (action.type) {
+    case 'FETCH_MOVIES_BY_ID_SUCCESS':
+      return action.payload;
 
-        case 'FETCH_MOVIES_BY_ID_SUCCESS':
-            return action.payload
-
-        default:
-            return state
-    }
-}
+    default:
+      return state;
+  }
+};
 export default movieDetails;

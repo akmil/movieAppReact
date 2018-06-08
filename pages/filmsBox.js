@@ -1,25 +1,33 @@
 import React from 'react';
 
-import {FilmsTitle} from './filmsParts/filmsTitle';
-import {FilmsCover} from './filmsParts/filmsCover';
-import {FilmsDescription} from './filmsParts/filmsDescription';
-import FilmsSortBy from './filmsParts/filmsSortBy';
-import {FilmsList} from './filmsParts/filmsList';
-import FilmsSearchButton from './filmsParts/filmsSearchButton';
+import {FilmsTitle}         from '../app/components/film/filmsParts/filmsTitle';
+import {FilmsCover}         from '../app/components/film/filmsParts/filmsCover';
+import {FilmsDescription}   from '../app/components/film/filmsParts/filmsDescription';
+import {FilmsList}          from '../app/components/film/filmsParts/filmsList';
+import FilmsSearchButton    from '../app/components/film/filmsParts/filmsSearchButton';
 
-import * as actions from "../../r_actions";
+import * as actions from "../app/r_actions";
 import {connect} from "react-redux";
 
 class FilmsBox extends React.Component {
+    static getInitialProps = (ctx) => {
+        const { id } = ctx.query;
+        console.log('ctx', ctx);
+        return {
+            id,
+        }
+    };
+
     constructor(props){
         super(props);
         this.state = {detailMovie: {title:''}}
+        console.log('FilmsBox', this.props);
         // this.handleInputChange = this.handleInputChange.bind(this);
         // this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     componentDidMount(){
-        this.props.fetchMovieById(this.props.match.params.id)
+        this.props.fetchMovieById(this.props.id)
             .then(res => {
                 this.setState({detailMovie : res});
 
@@ -35,7 +43,7 @@ class FilmsBox extends React.Component {
     render() {
         return (
             <div className='films films-box-wrapper'>
-                <p>films-box: <b>{this.props.match.params.id}</b></p>
+                <p>films-box: <b>{this.props.id}</b></p>
                 <div className='films-box-header'>
                     <div className='logo col-33'>netfixroulette</div>
                     <FilmsSearchButton name={'FilmsSearchButton'} theme={'white'}/>

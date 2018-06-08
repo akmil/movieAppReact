@@ -7,3 +7,4 @@ node_modules
 index.html
 /cypress
 cypress.json
+.next

@@ -1,24 +1,24 @@
 import { VisibilityFilters } from '../r_actions/index';
 
 const visibilityFilter = (state = 'SHOW_ALL', action) => {
-    /*console.log(
+  /* console.log(
         movies.filter(t => t.genre === t.filter)
-    );*/
-    switch (action.type) {
-        case 'SHOW_DRAMA':
-            // const moviesArr = movies(moviesInitial, action.type);
-            // const mFilterred = moviesArr.filter(t => t.genre === action.filter);
-            // console.log(mFilterred);
-            return action.filter        
+    ); */
+  switch (action.type) {
+    case 'SHOW_DRAMA':
+      // const moviesArr = movies(moviesInitial, action.type);
+      // const mFilterred = moviesArr.filter(t => t.genre === action.filter);
+      // console.log(mFilterred);
+      return action.filter;
 
-        case 'SHOW_ALL':
-            return state
-        default:
-            return state
-    }
-}
+    case 'SHOW_ALL':
+      return state;
+    default:
+      return state;
+  }
+};
 
-/*export const fetching = (state=false, action) => {
+/* export const fetching = (state=false, action) => {
 
     switch (action.type) {
 
@@ -35,6 +35,6 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => {
             return state
     }
 
-}*/
+} */
 
-export default visibilityFilter
+export default visibilityFilter;
