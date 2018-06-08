@@ -2,13 +2,12 @@
 const initialState = [];
 
 const relatedMovies = (state = initialState, action) => {
-    switch (action.type) {
+  switch (action.type) {
+    case 'FETCH_MOVIES_BY_GENRE_SUCCESS':
+      return action.payload;
 
-        case 'FETCH_MOVIES_BY_GENRE_SUCCESS':
-            return action.payload
-
-        default:
-            return state
-    }
-}
+    default:
+      return state;
+  }
+};
 export default relatedMovies;

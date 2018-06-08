@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 import FilmsSearchButton from './filmsSearchButton';
 
 describe('<films FilmsSearchButton />', () => {
-    it('should render SearchButton without errors', () => {
-        const wrapper = shallow(<FilmsSearchButton/>);
-        expect(wrapper).toMatchSnapshot();
-    });
+  it('should render SearchButton without errors', () => {
+    const wrapper = shallow(<FilmsSearchButton/>);
+    expect(wrapper).toMatchSnapshot();
+  });
 
-    it('should set class .dark-theme', () => {
-        const wrapper = shallow(<FilmsSearchButton theme={'dark'}/>);
-        console.log(wrapper.find('.dark-theme'));
-        expect(wrapper.find('.dark-theme').length).toEqual(1);
-    })
+  it('should set class .dark-theme', () => {
+    const wrapper = shallow(<FilmsSearchButton theme={'dark'}/>);
+    console.log(wrapper.find('.dark-theme'));
+    expect(wrapper.find('.dark-theme').length).toEqual(1);
+  });
 });

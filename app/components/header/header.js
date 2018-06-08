@@ -9,7 +9,9 @@ import {ResultsCount, ResultsSort} from "./resultsPanel";
 import {withRouter} from "next/router";
 
 /*styles*/
-// import "./header.scss"
+/* common */
+import stylesheet from "./header.scss"
+
 
 class Header extends React.Component {
     constructor(props){
@@ -58,6 +60,7 @@ class Header extends React.Component {
     render() {
         return (
             <header>
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div className="header-wrapper">
                     <form className="form-horizontal"
                           action={"/search?${query}"}

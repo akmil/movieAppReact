@@ -1,7 +1,6 @@
 import React from 'react';
 
-export const SearchFilter = ({name}) => {
-    return (
+export const SearchFilter = ({ name }) => (
         <div className='search-filter-box'>
             Search by
             <ul className={'search-filter-list'}>
@@ -9,5 +8,4 @@ export const SearchFilter = ({name}) => {
                 <li>{`Genre ${name}`}</li>
             </ul>
         </div>
-    );
-};
+);

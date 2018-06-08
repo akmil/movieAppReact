@@ -1,8 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import Link  from 'next/link'
+import PropTypes from 'prop-types';
+import Link from 'next/link';
 
-export const ResultsBodyItem = ({id, title, genres=[], release_date, poster_path}) => (
+export const ResultsBodyItem = ({
+  id, title, genres = [], release_date, poster_path,
+}) => (
     <li>
         <Link href={`/details/${id}`}>
             <span>
@@ -25,10 +27,10 @@ export const ResultsBodyItem = ({id, title, genres=[], release_date, poster_path
 );
 
 ResultsBodyItem.propTypes = {
-    // onClick: PropTypes.func.isRequired,
-    // isActive: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired,
-    // genres: PropTypes.array.isRequired,
-    release_date: PropTypes.string.isRequired,
-    poster_path: PropTypes.string
-}
+  // onClick: PropTypes.func.isRequired,
+  // isActive: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  // genres: PropTypes.array.isRequired,
+  release_date: PropTypes.string.isRequired,
+  poster_path: PropTypes.string,
+};
