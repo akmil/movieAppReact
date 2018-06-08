@@ -1,23 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import Link  from 'next/link'
 
 export const ResultsBodyItem = ({id, title, genres=[], release_date, poster_path}) => (
     <li>
-        <Link to={"/details/" + id}>
-            <img src={poster_path}
-                 alt={title}/>
-            <div className="col-50">
-                <p className={'title'}>{title}</p>
-                <p>
-                    {genres.map((genre, index) => (
-                        <span className={'genre'} key={index}>{genre} </span>
-                    ))}
-                </p>
-            </div>
-            <div className={'col-50 text-align-right'}>
-                <span className={'release-date'}>{release_date}</span>
-            </div>
+        <Link href={`/details/${id}`}>
+            <span>
+                <img src={poster_path}
+                     alt={title}/>
+                <div className="col-50">
+                    <p className={'title'}>{title}</p>
+                    <p>
+                        {genres.map((genre, index) => (
+                            <span className={'genre'} key={index}>{genre} </span>
+                        ))}
+                    </p>
+                </div>
+                <div className={'col-50 text-align-right'}>
+                    <span className={'release-date'}>{release_date}</span>
+                </div>
+            </span>
         </Link>
     </li>
 );

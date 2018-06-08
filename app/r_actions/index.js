@@ -82,8 +82,8 @@ export const fetchMovieByQuerySuccess = (movies) => {
 };
 
 export const fetchMovieByQuery = (query) => dispatch => {
-  // console.log('searchBy', query);
-  var url = `${apiUrl}movies?${query}`;
+  console.log('searchBy', query);
+  var url = `${apiUrl}movies?search=${query}`;
 
   fetch(url)
       .then(response => response.json())

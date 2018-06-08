@@ -1,0 +1,9 @@
+//this config used for test and webpack
+{
+  "compact": true,
+  "presets": [
+    "env",
+    "react",
+    "stage-2"
+  ]
+}

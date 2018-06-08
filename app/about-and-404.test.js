@@ -1,8 +1,8 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
 // import renderer from 'react-test-renderer';
-import {About} from "./components/About";
-import {FourOhFour} from "./components/FourOhFour";
+import {About} from "../pages/About";
+import {FourOhFour} from "../pages/FourOhFour";
 import { shallow } from 'enzyme'
 import PagesList from "./pagesList";
 import Search from "./search";

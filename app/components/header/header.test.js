@@ -21,7 +21,7 @@ describe('Header', function () {
                     store={mockStore(initialState)}
             />
         );
-        expect(wrapper.dive()).toMatchSnapshot();
+        expect(wrapper.dive().dive()).toMatchSnapshot();
     });
 
     it('should render without errors', () => {
@@ -29,7 +29,7 @@ describe('Header', function () {
             <Header dispatch={dispatch}
                     store={mockStore(initialState)}
             />
-        ).dive();
+        ).dive().dive();
 
         wrapper.find(SearchField).simulate('change', {
             target: {
@@ -45,7 +45,7 @@ describe('Header', function () {
             <Header dispatch={dispatch}
                     store={mockStore(initialState)}
             />
-        ).dive();
+        ).dive().dive();
         console.log('wrapper' , wrapper.find('.logo'))
         // expect(wrapper.find('.logo')).to.equal({length:1});
     });
