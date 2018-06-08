@@ -2,11 +2,11 @@
   "plugins": [
     [
       "module-resolver", {
-      "root": ["."],
-      "alias": {
-        "styles": "./styles"
-      },
-      "cwd": "babelrc"
+        "root": ["."],
+        "alias": {
+          "styles": "./styles"
+        },
+        "cwd": "babelrc"
     }],
     [
       "wrap-in-js",
@@ -20,4 +20,3 @@
   ],
   "ignore": []
 }
-

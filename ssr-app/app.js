@@ -11,21 +11,21 @@ import Search from './search';
 import PagesList from './pagesList';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import FilmsBox from "./components/film/filmsBox";
-import {About} from './components/About';
-import {FourOhFour} from "./components/FourOhFour";
+import FilmsBox from './components/film/filmsBox';
+import { About } from './components/About';
+import { FourOhFour } from './components/FourOhFour';
 
 import configureStore from './r_store/configureStore.dev';
 
 const store = configureStore();
 
-const context = {}
+const context = {};
 const markup = ReactDOMServer.renderToString(
     <Router location={req.url}
             context={context}>
       <Provider store={store}>
           <PagesList>
-              {/*<Route exact path="/" component={PagesList} />*/}
+              {/* <Route exact path="/" component={PagesList} /> */}
               <Switch>
                   <Route path="/home" component={HomeLayout} />
                   <Route path="/search/:query" component={Search} />
@@ -37,12 +37,12 @@ const markup = ReactDOMServer.renderToString(
           </PagesList>
       </Provider>
     </Router>,
-  document.getElementById('app')
+    document.getElementById('app'),
 );
 
 if (context.url) {
-    // Somewhere a `<Redirect>` was rendered
-    redirect(301, context.url)
+  // Somewhere a `<Redirect>` was rendered
+  redirect(301, context.url);
 } else {
-    // we're good, send the response
+  // we're good, send the response
 }
