@@ -106,5 +106,5 @@ const mapDispatchToProps = ({
     fetchMovieGenre: actions.fetchMovieGenre
 })
 
-// export default FilmsBox;
-export default connect(mapStateToProps, mapDispatchToProps)(FilmsBox);
+export default FilmsBox;
+// export default connect(mapStateToProps, mapDispatchToProps)(FilmsBox);

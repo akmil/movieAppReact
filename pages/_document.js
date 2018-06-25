@@ -6,7 +6,7 @@ export default class MyDocument extends Document {
     return (
             <html>
             <Head>
-                <link rel="stylesheet" href="/_next/static/main.css" />
+                {/*<link rel="stylesheet" href="/_next/static/main.css" />*/}
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
             </Head>
             <body>

@@ -29,10 +29,15 @@ app.prepare()
       // renderAndCache(req, res, '/About', queryParams)
     });
 
-    server.get('/details/:id', (req, res) => {
+    server.get('/filmsBox/:id', (req, res) => {
       const queryParams = { id: req.params.id };
       renderAndCache(req, res, '/filmsBox', queryParams);
     });
+
+      server.get('/details/:id', (req, res) => {
+          const queryParams = { id: req.params.id };
+          renderAndCache(req, res, '/details', queryParams);
+      });
 
     server.get('/search/:query', (req, res) => {
       const queryParams = { query: req.params.query };

@@ -14,14 +14,11 @@ class HomeLayout extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log('props(HomeLayout)', props);
-    // this.props.store = store;
+    // console.log('props(HomeLayout)', props);
   }
 
   componentDidMount() {
-    // const {dispatch} = this.props
-    // this.timer = startClock(dispatch)
-    console.log('HomeLayout', this.props.movies);
+    // console.log('HomeLayout', this.props.movies);
   }
 
   componentWillUnmount() {
