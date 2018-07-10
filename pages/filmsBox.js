@@ -45,10 +45,27 @@ class FilmsBox extends React.Component {
             })
     }
 
+    componentDidUpdate(prevProps) {
+        // console.log('componentDidUpdate', this.props.id);
+
+        if (this.props.id !== prevProps.id) {
+            this.props.fetchMovieById(this.props.id)
+                .then(res => {
+                    this.setState({detailMovie : res});
+
+                    //move to componentDidUpdate
+                    this.props.fetchMovieGenre(res.genres[0])
+                        .then(res => {
+                            this.setState({relatedMovies : res});
+                            console.log(this.state, res);
+                        })
+                })
+        }
+    }
+
     render() {
         return (
-            <div className='films films-box-wrapper' filmId={this.props.id}>
-                <p>films-box: <b>{this.props.id}</b></p>
+            <div className='films films-box-wrapper' data-film-id={this.props.id}>
                 <div className='films-box-header'>
                     <div className='logo col-33'><a href="/">netfixroulette</a></div>
                     <FilmsSearchButton name={'FilmsSearchButton'} theme={'white'}/>
