@@ -3,40 +3,41 @@
 exports[`ResultsBody should render without errors ResultsBody 1`] = `
 <li>
   <Link
-    replace={false}
-    to="/details/undefined"
+    href="/filmsBox?id=undefined"
   >
-    <img
-      alt="title"
-      src="foo"
-    />
-    <div
-      className="col-50"
-    >
-      <p
-        className="title"
+    <span>
+      <img
+        alt="title"
+        src="foo"
+      />
+      <div
+        className="col-50"
       >
-        title
-      </p>
-      <p>
-        <span
-          className="genre"
-          key="0"
+        <p
+          className="title"
         >
-          genres
-           
-        </span>
-      </p>
-    </div>
-    <div
-      className="col-50 text-align-right"
-    >
-      <span
-        className="release-date"
+          title
+        </p>
+        <p>
+          <span
+            className="genre"
+            key="0"
+          >
+            genres
+             
+          </span>
+        </p>
+      </div>
+      <div
+        className="col-50 text-align-right"
       >
-        foo
-      </span>
-    </div>
+        <span
+          className="release-date"
+        >
+          foo
+        </span>
+      </div>
+    </span>
   </Link>
 </li>
 `;

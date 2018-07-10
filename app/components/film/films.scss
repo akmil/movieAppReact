@@ -8,6 +8,11 @@
     background: $primaryColor url("https://images.pexels.com/photos/701337/pexels-photo-701337.jpeg?auto=compress&cs=tinysrgb&h=650&w=940") center;
     background-size: cover;
 
+    .logo a {
+      color: $secondaryColor;
+      text-decoration: none;
+    }
+
     img {
       height: 280px;
       object-fit: cover;

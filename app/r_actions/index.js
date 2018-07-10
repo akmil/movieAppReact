@@ -46,9 +46,9 @@ export const fetchMovieGenreSuccess = movies =>
     type: 'FETCH_MOVIES_BY_GENRE_SUCCESS',
     payload: movies,
   });
-export const fetchMovieGenre = genre => (dispatch) => {
+export const fetchMovieGenre = query => (dispatch) => {
   // console.log('searchBy', genre);
-  const url = `${apiUrl}movies?search=${genre}&searchBy=genres`;
+  const url = `${apiUrl}movies?search=${query}`;
 
 
   const promise = fetch(url)

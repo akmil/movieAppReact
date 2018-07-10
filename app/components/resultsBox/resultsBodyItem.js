@@ -6,7 +6,7 @@ export const ResultsBodyItem = ({
   id, title, genres = [], release_date, poster_path,
 }) => (
     <li>
-        <Link href={`/details/${id}`}>
+        <Link href={`/filmsBox?id=${id}`}>
             <span>
                 <img src={poster_path}
                      alt={title}/>

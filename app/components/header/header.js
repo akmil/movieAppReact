@@ -16,7 +16,7 @@ import stylesheet from "./header.scss"
 class Header extends React.Component {
     constructor(props){
         super(props);
-        console.log(' Header constructor props', props);
+        // console.log(' Header constructor props', props);
         this.state = {sortBy: 'title', text: ''};
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -37,25 +37,67 @@ class Header extends React.Component {
     handleFormSubmit = (e) => {
         e.preventDefault();
         // let location = `/search/search=${this.state.text}&searchBy=${this.state.sortBy}`;
-        let location = `/search/${this.state.text}&searchBy=${this.state.sortBy}`;
-        console.log('handleFormSubmit', this.props);
-        this.props.router.push(location)
+        console.log('handleFormSubmit', this.props, this.state.sortBy);
+        //when MovieTitle or Genre not equal prew then make request
+        if(this.props.query &&
+            (this.props.router.query.search !== '' && this.props.router.query.search !== this.state.text) ||
+            (this.props.router.query.searchBy !== '' && this.props.router.query.searchBy !== this.state.sortBy)
+        ){
+            let query = {
+                search: this.state.text,
+                searchBy: this.state.sortBy
+            }
+            console.log('Header.componentDidMount - query ->>', query)
+            this.props.router.push({
+                pathname: '/search',
+                query: {
+                    search: this.state.text,
+                    searchBy: this.state.sortBy
+                }
+            });
+            this.props.fetchMovieByQuery(this.props.query);
+        }
+        /*this.props.router.push({
+            pathname: '/search',
+            query: {
+                search: this.state.text,
+                searchBy: this.state.sortBy
+            }
+        });*/
     };
 
     setGenre(genre){
+        // console.log('setGenre', this.state.sortBy);
+        var self = this;
         this.setState({sortBy: genre});
+        setTimeout(()=>{
+            console.log('this.state.sortBy', this.state.sortBy);
+        }, 200);
+        console.log('should search by', genre);
+        console.log('this.state.sortBy', this.state.sortBy);
+        // e.preventDefault();
     }
 
     getTotal = () => this.props.totalMovies;
 
+    //first load
     componentDidMount(){
         // var query= `search=${this.state.text}&searchBy=${this.state.sortBy}`;
 
+        console.log('Header.componentDidMount - this.props ->>', this.props.router);
         if(this.props.query){
-            console.log('Header.componentDidMount - this.props ->>', this.props)
+            // console.log('Header.componentDidMount - this.props ->>', this.props.router)
             this.props.fetchMovieByQuery(this.props.query);
         }
     }
+
+    // componentDidUpdate(){
+    //     console.log('Header.componentDidUpdate - this.props ->>', this.props);
+    //     if(this.props.query){
+    //         // console.log('Header.componentDidMount - this.props ->>', this.props.router)
+    //         this.props.fetchMovieByQuery(this.props.query);
+    //     }
+    // }
 
     render() {
         return (
@@ -63,10 +105,10 @@ class Header extends React.Component {
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div className="header-wrapper">
                     <form className="form-horizontal"
-                          action={"/search?${query}"}
+                          action={"/search/${query}"}
                           onSubmit={this.handleFormSubmit}
                     >
-                        <div className='logo'>netfixroulette</div>
+                        <div className='logo'><a href="/">netfixroulette</a></div>
                         <SearchField
                             val={'Search by name'}
                             onChange = {this.handleInputChange}
@@ -104,7 +146,7 @@ class Header extends React.Component {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        sortBy: state.sortBy,
+        // sortBy: state.sortBy,
         totalMovies: state.movies.length
     }
 };
@@ -112,6 +154,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = ({
     // fetchMovie: actions.fetchMovieByName,
     fetchMovieByQuery: actions.fetchMovieByQuery,
+    fetchMovieGenre: actions.fetchMovieGenre
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

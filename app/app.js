@@ -11,9 +11,9 @@ import Search from './search';
 import PagesList from './pagesList';
 // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-import FilmsBox from "./components/film/filmsBox";
-import {About} from './components/About';
-import {FourOhFour} from "./components/FourOhFour";
+import FilmsBox from './components/film/filmsBox';
+import { About } from './components/About';
+import { FourOhFour } from './components/FourOhFour';
 
 import configureStore from './r_store/configureStore.dev';
 
@@ -24,7 +24,7 @@ render(
     <Router>
       <Provider store={store}>
           <PagesList>
-              {/*<Route exact path="/" component={PagesList} />*/}
+              {/* <Route exact path="/" component={PagesList} /> */}
               <Switch>
                   <Route path="/home" component={HomeLayout} />
                   <Route path="/search/:query" component={Search} />
@@ -36,5 +36,5 @@ render(
           </PagesList>
       </Provider>
     </Router>,
-  document.getElementById('app')
+    document.getElementById('app'),
 );

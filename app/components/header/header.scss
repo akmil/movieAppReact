@@ -7,10 +7,11 @@ $margin-base: 20px;
 
 $fontFamily: 'Roboto', sans-serif !default;
 
-.logo {
+.logo a {
   color: $thirdlyColor;
   font-weight: bold;
   padding: $padding-base 0;
+  text-decoration: none;
 }
 
 header {
