@@ -4,7 +4,7 @@ exports[`HomeLayout should render without errors 1`] = `
 <div
   className="main-layout-wrapper"
 >
-  <withRouter(Connect(Header)) />
+  <Connect(withRouter(Header)) />
   <ResultsBox />
 </div>
 `;

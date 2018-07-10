@@ -8,8 +8,8 @@ class Search extends React.Component {
         const pathToSearch = `${query.search}&searchBy=${query.searchBy}`;
         const userAgent = ctx.req ? ctx.req.headers['user-agent'] : 'someBrowser';
 
-        console.log('ctx', ctx.asPath);
-        console.log('query', query);
+        // console.log('ctx', ctx.asPath);
+        // console.log('query', query);
         // console.log('ctx-headers', ctx.req.headers['user-agent']);
         return {
             query,
@@ -18,10 +18,10 @@ class Search extends React.Component {
         }
     };
 
-    componentDidMount(){
+    /*componentDidMount(){
         console.log('Search query', this.props.query);
         console.log('Search userAgent', this.props.userAgent);
-    }
+    }*/
 
     render() {
         return (

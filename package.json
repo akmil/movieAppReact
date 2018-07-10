@@ -8,7 +8,10 @@
     "build-storybook": "build-storybook",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "test-upd-snapShot": "jest --updateSnapshot",
+    "cypress": "cypress open"
   },
   "author": "Davide Bertola <dade@dadeb.it>",
   "license": "ISC",
@@ -36,17 +39,20 @@
     "@storybook/addons": "^3.4.6",
     "@storybook/react": "^3.4.6",
     "babel-core": "^6.26.3",
+    "cypress": "^2.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.9.1",
     "express": "^4.16.3",
+    "identity-obj-proxy": "^3.0.0",
     "isomorphic-unfetch": "^2.0.0",
-
     "jest": "^22.4.3",
     "jest-css-modules": "^1.1.0",
-
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0"
   },

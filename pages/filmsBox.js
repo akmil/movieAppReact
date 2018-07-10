@@ -50,7 +50,7 @@ class FilmsBox extends React.Component {
             <div className='films films-box-wrapper' filmId={this.props.id}>
                 <p>films-box: <b>{this.props.id}</b></p>
                 <div className='films-box-header'>
-                    <div className='logo col-33'>netfixroulette</div>
+                    <div className='logo col-33'><a href="/">netfixroulette</a></div>
                     <FilmsSearchButton name={'FilmsSearchButton'} theme={'white'}/>
                     <div className={'d-flex'}>
                         <FilmsCover src={this.state.detailMovie.poster_path}/>

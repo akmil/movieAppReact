@@ -5,7 +5,7 @@ import { About } from '../pages/About';
 import { FourOhFour } from '../pages/FourOhFour';
 import { shallow } from 'enzyme';
 import PagesList from './pagesList';
-import Search from './search';
+import Search from './../pages/search';
 
 describe('About, FourOhFour, PagesList, Search', () => {
   it('should render About without errors', () => {
