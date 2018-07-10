@@ -46,12 +46,13 @@
       width: 33%;
       display: inline-block;
       margin: 0 $margin-base/5;
-      min-height: 370px;
+      min-height: 380px;
       vertical-align: top;
 
       &:hover {
         cursor: pointer;
-        box-shadow: 0 0 0 1px lighten($primaryColor, 60) inset;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.125) inset;
+        background-color: rgba(0,0,0,0.1);
       }
     }
   }
